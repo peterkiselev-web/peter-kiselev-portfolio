@@ -499,8 +499,12 @@
       background: var(--fg);
     }
 
-    .motion .hero-foot:not(.gone) .cue i::after {
+    .motion .cue i::after {
       animation: cue 2.4s var(--ease) infinite;
+    }
+
+    .motion .hero-foot.gone .cue i::after {
+      animation-play-state: paused;
     }
 
     @keyframes cue {
@@ -585,6 +589,10 @@
     .tangle-wrap {
       position: relative;
       height: 62vh;
+    }
+
+    html:not(.js) .tangle-wrap {
+      display: none;
     }
 
     .motion .tangle-wrap {
@@ -724,7 +732,12 @@
 
     .panel-intro p {
       max-width: 34ch;
+      margin-bottom: 0;
       color: var(--muted);
+    }
+
+    .panel-intro .label {
+      margin-bottom: 0;
     }
 
     .panel-num {
@@ -767,6 +780,32 @@
 
     .meta dd {
       font-size: 14px;
+    }
+
+    /* With four columns the panels share rows, so numbers, headings, text and
+       terms line up across the page even when one line wraps. */
+    @supports (grid-template-rows: subgrid) {
+      @media (min-width: 1181px) {
+        .panel:not(.panel-intro) {
+          display: grid;
+          grid-row: span 4;
+          grid-template-rows: subgrid;
+          row-gap: 0;
+        }
+
+        .panel:not(.panel-intro) > div {
+          display: contents;
+        }
+
+        .panel-num {
+          margin-bottom: 36px;
+        }
+
+        .meta {
+          align-self: start;
+          margin-top: 0;
+        }
+      }
     }
 
     @media (max-width: 1180px) {
@@ -1289,6 +1328,7 @@
       }
 
       .panel-intro {
+        gap: 0;
         padding-top: 0;
         border-top: 0;
       }
@@ -1629,15 +1669,19 @@
        content hidden. `margin` is how far above the bottom edge it fires. ── */
     const reveal = (els, margin = '-12%') => {
       if (!motion) return;
+      // The huge top margin makes everything above the viewport count as seen,
+      // so content an anchor jump skips past is already there on the way back.
       const io = new IntersectionObserver(entries => entries.forEach(en => {
-        if (!en.isIntersecting && en.boundingClientRect.top > 0) return;
+        if (!en.isIntersecting) return;
         en.target.classList.add('in');
         io.unobserve(en.target);
-      }), { rootMargin: `0px 0px ${margin} 0px` });
+      }), { rootMargin: `100000px 0px ${margin} 0px` });
       els.forEach(el => io.observe(el));
     };
     reveal($$('[data-reveal]'));
-    reveal($$('.term'), '-36%');
+    // The first term waits until the page has turned to paper; the rest reveal normally.
+    reveal($$('.term').slice(0, 1), '-36%');
+    reveal($$('.term').slice(1));
     reveal($$('.wordmark'), '-4%');
 
     // 0 when the section's top meets the top of the screen, 1 when its pin releases.
@@ -1796,8 +1840,8 @@
       const p = clamp(v - 1);
       const e = ease(range(p, .22, .72));
       const gone = range(p, .22, .46);
-      // The drawing surfaces once the page has turned to ink (the flip lands near v .56).
-      if (motion) svg.style.opacity = ease(range(v, .6, .95)).toFixed(3);
+      // The drawing surfaces as soon as the page has turned to ink (the flip lands near v .56).
+      if (motion) svg.style.opacity = ease(range(v, .56, .8)).toFixed(3);
 
       for (const id in nodes) {
         const n = nodes[id];
@@ -1993,7 +2037,7 @@
               float w = .006 + .011 * uLevel + .004 * uWake;
               float len = (1. - smoothstep(reach * .6, reach, r)) * smoothstep(.02, .1, r);
               float amp = mix(.12, .35, clamp(uWake + 2. * uLevel, 0., 1.));
-              float flick = 1. - amp + amp * noise(vec2(t * 6. + fi * 11., fi));
+              float flick = .825 - .5 * amp + amp * noise(vec2(t * 6. + fi * 11., fi));
               arcs += (exp(-d * d / (w * w)) + .18 * exp(-d / (w * 5.))) * len * flick;
             }
             vec3 hot = mix(vec3(1., .92, .8), mix(gold, lilac, smoothstep(.15, R, r)), smoothstep(0., .3, r));
@@ -2238,12 +2282,16 @@
     /* ── Frame loop: one pass per scroll or resize, then sleeps ── */
     let raf = 0;
 
+    // False if the boot failsafe switched motion off after a setup error.
+    const moving = () => root.classList.contains('motion');
+
     function frame() {
       raf = 0;
+      const run = moving() ? scenes : [];
       // Rounded, so sub-pixel layout noise never triggers a redraw.
-      for (const s of scenes) s.p = Math.round(s.measure() * 1e4) / 1e4;
+      for (const s of run) s.p = Math.round(s.measure() * 1e4) / 1e4;
       const chrome = readChrome();
-      for (const s of scenes) {
+      for (const s of run) {
         if (s.p !== s.drawn) {
           s.render(s.p);
           s.drawn = s.p;
@@ -2260,7 +2308,7 @@
       vw = innerWidth;
       vh = innerHeight;
       layoutTangle();
-      if (!motion) renderTangle(2, 0);
+      if (!moving()) renderTangle(2, 0);
       fitWordmark();
       docH = root.scrollHeight;
       for (const s of scenes) s.drawn = null;
