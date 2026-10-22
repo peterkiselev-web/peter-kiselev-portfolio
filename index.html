@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K &amp; Co · AI and operations advisory, London and Dubai</title>
   <meta name="description" content="K &amp; Co is an advisory firm in London and Dubai, founded by Peter Kiselev. We build AI systems, voice receptionists included, that take repetitive work off your team." />
-  <meta name="theme-color" content="#eeeae2" />
+  <meta name="theme-color" content="#fafaf9" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="K &amp; Co" />
   <meta property="og:description" content="Private advisory on AI and operations. London and Dubai." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23141412'/%3E%3Ctext x='32' y='47' font-family='Georgia,serif' font-size='42' text-anchor='middle' fill='%23eeeae2'%3EK%3C/text%3E%3C/svg%3E" />
-  <link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1016'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%23fafaf9'%3EK%3C/text%3E%3C/svg%3E" />
   <link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin />
   <script>
     document.documentElement.classList.add('js');
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -45,15 +44,7 @@
     @font-face {
       font-family: 'Geist';
       src: url('fonts/geist.woff2') format('woff2');
-      font-weight: 300 600;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Geist Mono';
-      src: url('fonts/geist-mono.woff2') format('woff2');
-      font-weight: 400;
+      font-weight: 100 900;
       font-style: normal;
       font-display: swap;
     }
@@ -64,65 +55,51 @@
       padding: 0;
     }
 
-    /* ── Theme ──
-       Registered so the whole page can fade between paper and ink
-       as sections cross the middle of the screen. */
-    @property --bg { syntax: '<color>'; inherits: true; initial-value: #eeeae2; }
-    @property --fg { syntax: '<color>'; inherits: true; initial-value: #141412; }
-    @property --muted { syntax: '<color>'; inherits: true; initial-value: #5f5c55; }
-    @property --line { syntax: '<color>'; inherits: true; initial-value: #d2cdc3; }
-    @property --accent { syntax: '<color>'; inherits: true; initial-value: #8a6a3e; }
-
+    /* ── Tokens ──
+       One light page with a few bands of colour. --deep is the house colour
+       (buttons, the banner, the contact card, the wordmark); change it here
+       and everything that carries the brand follows. */
     :root {
-      --bg: #eeeae2;
-      --fg: #141412;
-      --muted: #5f5c55;
-      --line: #d2cdc3;
+      --bg: #fafaf9;
+      --ink: #0d1016;
+      --muted: #6b6b6b;
+      --line: #e4e3e0;
+      --stage: #e8e8e6;
+      --sand: #e3e1dc;
+      --night: #0d1016;
       --accent: #8a6a3e;
-      --grain: .05;
+      --deep: #16233a;
+      --on-dark: #f4f3f0;
+      --on-dark-muted: rgba(244, 243, 240, .62);
+      --on-dark-line: rgba(244, 243, 240, .14);
       --serif: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
       --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-      --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-      --pad: clamp(20px, 4.4vw, 72px);
+      --pad: clamp(16px, 1.7vw, 32px);
+      --gap: clamp(16px, 1.7vw, 24px);
+      --space: clamp(96px, 13vw, 200px);
+      --nav: 64px;
+      --bar: 36px;
       --ease: cubic-bezier(.2, .7, .1, 1);
-    }
-
-    :root.motion {
-      transition:
-        --bg .6s var(--ease),
-        --fg .6s var(--ease),
-        --muted .6s var(--ease),
-        --line .6s var(--ease),
-        --accent .6s var(--ease);
-    }
-
-    :root[data-theme="dark"] {
-      --bg: #0f0f0e;
-      --fg: #ebe6dc;
-      --muted: #8f8b83;
-      --line: #2b2a27;
-      --accent: #c4a57b;
-      --grain: .07;
     }
 
     html {
       background: var(--bg);
-      color: var(--fg);
+      color: var(--ink);
       -webkit-text-size-adjust: 100%;
     }
 
     body {
       font-family: var(--sans);
-      font-weight: 350;
+      font-weight: 400;
       font-size: 16px;
-      line-height: 1.55;
+      line-height: 1.45;
       overflow-x: clip;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     ::selection {
-      background: var(--fg);
+      background: var(--ink);
       color: var(--bg);
     }
 
@@ -132,46 +109,29 @@
     }
 
     :focus-visible {
-      outline: 1px solid currentColor;
-      outline-offset: 4px;
-    }
-
-    .mono {
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .label {
-      color: var(--muted);
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
     }
 
     [hidden] {
       display: none !important;
     }
 
-    /* Section numbers count only the sections on show, so a hidden one
-       never leaves a gap in the sequence. */
-    main {
-      counter-reset: section;
+    main > section {
+      scroll-margin-top: var(--nav);
     }
 
-    main > section[data-label] {
-      counter-increment: section;
-    }
-
-    .num::before {
-      content: counter(section, decimal-leading-zero);
-    }
-
-    .display {
-      font-family: var(--serif);
+    .h2 {
       font-weight: 400;
-      font-size: clamp(44px, 5.4vw, 92px);
-      line-height: .98;
-      letter-spacing: -.02em;
+      font-size: clamp(30px, 2.9vw, 42px);
+      line-height: 1.04;
+      letter-spacing: -.022em;
+      text-wrap: balance;
+    }
+
+    .lead {
+      font-size: clamp(17px, 1.25vw, 19px);
+      line-height: 1.34;
     }
 
     .skip {
@@ -179,8 +139,9 @@
       left: var(--pad);
       top: 12px;
       z-index: 200;
-      padding: 10px 14px;
-      background: var(--fg);
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--ink);
       color: var(--bg);
       transform: translateY(-160%);
       transition: transform .3s var(--ease);
@@ -190,413 +151,528 @@
       transform: none;
     }
 
-    .grain {
-      position: fixed;
-      inset: 0;
-      z-index: 150;
-      pointer-events: none;
-      opacity: var(--grain);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    /* ── Buttons: a pill with a small round arrow ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 40px;
+      padding: 6px 6px 6px 16px;
+      border-radius: 999px;
+      background: var(--deep);
+      color: #fff;
+      font-size: 14px;
+      line-height: 1;
+      white-space: nowrap;
     }
 
-    /* ── Navigation ── */
-    .nav {
+    .btn-arrow {
+      display: grid;
+      place-items: center;
+      flex: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--deep);
+      transition: transform .5s var(--ease);
+    }
+
+    .btn-arrow svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .btn:hover .btn-arrow,
+    .btn:focus-visible .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .btn-light .btn-arrow {
+      background: var(--deep);
+      color: #fff;
+    }
+
+    .btn-soft {
+      background: #ebebe8;
+      color: var(--ink);
+    }
+
+    .btn-soft .btn-arrow {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    /* ── Header: a thin banner, then the bar. The banner slides away once you scroll. ── */
+    .top {
       position: fixed;
       inset: 0 0 auto;
       z-index: 100;
+    }
+
+    .motion .top {
+      transition: transform .5s var(--ease), opacity 1s var(--ease);
+    }
+
+    .top.scrolled {
+      transform: translateY(calc(var(--bar) * -1));
+    }
+
+    .motion:not(.loaded) .top {
+      opacity: 0;
+    }
+
+    .announce {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      height: var(--bar);
+      padding: 0 var(--pad);
+      background: var(--deep);
+      color: #fff;
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .announce-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      opacity: .7;
+      transition: opacity .3s;
+    }
+
+    .announce:hover .announce-more {
+      opacity: 1;
+    }
+
+    .announce svg {
+      width: 11px;
+      height: 11px;
+    }
+
+    .announce-short {
+      display: none;
+    }
+
+    .nav {
+      position: relative;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      padding: 22px var(--pad);
-      transition: opacity 1s var(--ease);
+      height: var(--nav);
+      padding: 0 var(--pad);
     }
 
     .nav::before {
       content: '';
       position: absolute;
-      inset: 0 0 -28px;
+      inset: 0;
       z-index: -1;
-      background: linear-gradient(var(--bg) 50%, transparent);
+      background: rgba(250, 250, 249, .84);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
+      backdrop-filter: blur(16px) saturate(1.4);
+      box-shadow: 0 1px 0 var(--line);
       opacity: 0;
-      transition: opacity .5s;
-      pointer-events: none;
+      transition: opacity .4s var(--ease);
     }
 
-    .nav.solid::before {
+    .top.scrolled .nav::before {
       opacity: 1;
-    }
-
-    .motion:not(.loaded) .nav {
-      opacity: 0;
-    }
-
-    .brand {
-      justify-self: start;
-      display: inline-flex;
-      align-items: baseline;
-      gap: 10px;
-    }
-
-    .brand-name {
-      font-family: var(--serif);
-      font-size: 26px;
-      line-height: 1;
-      letter-spacing: -.01em;
-    }
-
-    .brand-name em {
-      color: var(--accent);
     }
 
     .links {
       display: flex;
-      gap: 34px;
-      font-size: 14px;
+      gap: 24px;
+      font-size: 13px;
     }
 
-    .links a,
-    .email {
-      position: relative;
+    .links a {
+      opacity: .78;
+      transition: opacity .3s;
     }
 
-    .links a::after,
-    .email::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -3px;
-      height: 1px;
-      background: currentColor;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform .6s var(--ease);
+    .links a:hover {
+      opacity: 1;
     }
 
-    .links a:hover::after,
-    .links a:focus-visible::after {
-      transform: scaleX(1);
-      transform-origin: left;
+    .brand {
+      justify-self: center;
+      font-family: var(--serif);
+      font-size: 27px;
+      line-height: 1;
+      letter-spacing: -.01em;
+      white-space: nowrap;
     }
 
-    .clock {
+    .brand em {
+      color: var(--accent);
+    }
+
+    .nav-end {
       justify-self: end;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
+    }
+
+    .clock {
+      display: flex;
+      gap: 6px;
+      font-size: 13px;
       color: var(--muted);
+      font-variant-numeric: tabular-nums;
     }
 
     .clock time {
-      color: var(--fg);
+      color: var(--ink);
     }
 
     .clock time + span {
       margin-left: 8px;
     }
 
-    .clock i {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
+    .nav .btn {
+      min-height: 36px;
+      padding: 4px 4px 4px 14px;
+      font-size: 13px;
     }
 
-    /* ── Fixed chrome: section index and scroll progress, in the right margin ── */
-    .rail {
-      position: fixed;
-      right: calc(var(--pad) * .45);
-      top: 50%;
-      z-index: 90;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-      transform: translate(50%, -50%);
+    .nav .btn-arrow {
+      width: 26px;
+      height: 26px;
     }
 
-    .index {
-      display: flex;
-      gap: 10px;
-      color: var(--muted);
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      transition: opacity .5s;
-    }
-
-    .index.hide {
-      opacity: 0;
-    }
-
-    .index-num {
-      color: var(--fg);
-    }
-
-    .progress {
+    /* ── Hero: a close-up of an instruction being typed, slightly out of focus ── */
+    .hero {
+      --fh: clamp(110px, min(19vw, 30vh), 280px);
       position: relative;
-      width: 1px;
-      height: 120px;
-      background: var(--line);
-    }
-
-    .progress span {
-      position: absolute;
-      inset: 0;
-      background: var(--fg);
-      transform: scaleY(0);
-      transform-origin: top;
-    }
-
-    /* ── Pinned sections ──
-       Without motion (no JS, or reduced motion) everything below is a
-       normal static page. The .motion rules add the scroll stages. */
-    .pin {
-      position: relative;
-    }
-
-    .sticky {
-      position: relative;
-      min-height: 100vh;
-      min-height: 100svh;
-    }
-
-    .motion .sticky {
-      position: sticky;
-      top: 0;
       height: 100vh;
       height: 100svh;
-      min-height: 0;
+      min-height: 600px;
       overflow: hidden;
+      isolation: isolate;
+      color: #fff;
+      background: linear-gradient(to top, #444442 0%, #656562 30%, #9a9a96 52%, #dededb 70%, #efefed 100%);
     }
 
-    /* ── Hero ── */
-    .motion .hero {
-      height: 170vh;
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
     }
 
-    .hero .sticky {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px var(--pad) 110px;
+    .hero-drift {
+      position: absolute;
+      inset: -4%;
     }
 
-    .hero-inner {
-      position: relative;
+    .motion .hero-drift {
+      animation: camera 34s ease-in-out infinite alternate;
     }
 
-    .hero-label {
+    @keyframes camera {
+      to { transform: translate3d(-1.5%, 1%, 0) scale(1.03); }
+    }
+
+    .file {
+      position: absolute;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.035em;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .f1 {
+      top: 12%;
+      left: 6%;
+      font-size: clamp(40px, 5.2vw, 84px);
+      color: rgba(28, 28, 28, .46);
+      filter: blur(4px);
+    }
+
+    .f2 {
+      top: 4%;
+      right: -2%;
+      font-size: clamp(32px, 3.8vw, 60px);
+      color: rgba(28, 28, 28, .3);
+      filter: blur(7px);
+    }
+
+    .f3 {
+      top: 60%;
+      left: 54%;
+      font-size: clamp(34px, 3.6vw, 56px);
+      color: rgba(255, 255, 255, .3);
+      filter: blur(9px);
+    }
+
+    .f4 {
+      top: 70%;
+      left: -3%;
+      font-size: clamp(40px, 4.6vw, 72px);
+      color: rgba(255, 255, 255, .22);
+      filter: blur(11px);
+    }
+
+    .motion .f1 { animation: drift 23s ease-in-out infinite alternate; }
+    .motion .f2 { animation: drift 29s ease-in-out -9s infinite alternate-reverse; }
+    .motion .f3 { animation: drift 31s ease-in-out -4s infinite alternate; }
+    .motion .f4 { animation: drift 27s ease-in-out -14s infinite alternate-reverse; }
+
+    @keyframes drift {
+      to { transform: translate3d(3vw, 1vh, 0); }
+    }
+
+    .field {
+      position: absolute;
+      left: -12%;
+      right: 9%;
+      top: 25%;
+      height: var(--fh);
+      border-radius: 999px;
+      background: linear-gradient(180deg, #f8f8f6 0%, #ececea 52%, #dddcd9 100%);
+      box-shadow:
+        0 0 0 clamp(6px, .8vw, 12px) rgba(255, 255, 255, .42),
+        inset 0 3px 2px rgba(255, 255, 255, .95),
+        inset 0 -8px 16px rgba(0, 0, 0, .07),
+        0 40px 80px -30px rgba(0, 0, 0, .4);
+      overflow: hidden;
+      transition: opacity 1.6s var(--ease), transform 1.6s var(--ease);
+    }
+
+    .motion:not(.loaded) .field {
+      opacity: 0;
+      transform: translate3d(0, 24px, 0);
+    }
+
+    /* The instruction grows to the left, so the caret stays put and the
+       start of the line slips out of focus past the edge. */
+    .field-clip {
+      position: absolute;
+      inset: 0;
+      -webkit-mask-image: linear-gradient(90deg, transparent 6%, #000 40%);
+      mask-image: linear-gradient(90deg, transparent 6%, #000 40%);
+    }
+
+    .type {
+      position: absolute;
+      right: 47%;
+      top: 50%;
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: clamp(24px, 4.5vh, 48px);
-      color: var(--muted);
+      font-size: calc(var(--fh) * .54);
+      line-height: 1;
+      letter-spacing: -.035em;
+      white-space: pre;
+      color: #2c2c2b;
+      filter: blur(.8px);
+      transform: translateY(-54%);
     }
 
-    .hero-label::before {
-      content: '';
-      width: 48px;
-      height: 1px;
-      background: currentColor;
-      transform-origin: left;
-      transition: transform 1.6s var(--ease) .5s;
+    .caret {
+      flex: none;
+      width: max(3px, .05em);
+      height: 1.02em;
+      margin-left: .05em;
+      border-radius: 2px;
+      background: #3c3c3b;
     }
 
-    .motion:not(.loaded) .hero-label::before {
-      transform: scaleX(0);
+    .motion .caret {
+      animation: blink 1.1s steps(1) infinite;
     }
 
-    .hero-title {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(46px, 8.4vw, 150px);
-      line-height: .95;
-      letter-spacing: -.025em;
+    .motion .field.typing .caret {
+      animation: none;
     }
 
-    .hero-title .line {
-      display: block;
-      overflow: hidden;
-      padding: 0 .1em .1em;
-      margin: 0 -.1em -.1em;
+    @keyframes blink {
+      50% { opacity: 0; }
     }
 
-    .line-in {
-      display: inline-block;
-    }
-
-    .motion .line-in {
-      transition: transform 1.5s var(--ease);
-      transition-delay: calc(var(--i) * 90ms + 120ms);
-    }
-
-    .motion:not(.loaded) .line-in {
-      transform: translate3d(0, 108%, 0);
-    }
-
-    .quiet {
-      font-style: italic;
-      color: var(--accent);
-      padding-right: .06em;
-    }
-
-    .hero-note {
-      position: absolute;
-      right: var(--pad);
-      bottom: 16vh;
-      max-width: 21rem;
-      font-size: 15px;
-      color: var(--muted);
-    }
-
-    .motion .hero-note {
-      opacity: 0;
-    }
-
-    .hero-foot {
+    .hero-copy {
       position: absolute;
       left: var(--pad);
       right: var(--pad);
-      bottom: 28px;
+      bottom: clamp(40px, 8vh, 88px);
+      display: grid;
+      justify-items: center;
+      gap: 22px;
+      text-align: center;
+      text-shadow: 0 1px 28px rgba(0, 0, 0, .18);
+    }
+
+    .hero-title {
+      max-width: 16em;
+      font-weight: 400;
+      font-size: clamp(38px, 4.4vw, 66px);
+      line-height: 1.02;
+      letter-spacing: -.032em;
+      text-wrap: balance;
+    }
+
+    .hero-title em {
+      font-family: var(--serif);
+      font-size: 1.08em;
+      letter-spacing: -.01em;
+    }
+
+    .hero-sub {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      color: var(--muted);
-      transition: opacity 1.2s var(--ease) .9s;
-    }
-
-    .motion:not(.loaded) .hero-foot {
-      opacity: 0;
-    }
-
-    /* The scroll fade lives on the children, so the parent keeps its slow load-in. */
-    .motion .hero-foot > * {
-      transition: opacity .3s var(--ease);
-    }
-
-    .motion .hero-foot.gone > * {
-      opacity: 0;
-    }
-
-    .cue {
-      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
-      gap: 12px;
+      gap: 12px 18px;
+      font-size: 16px;
     }
 
-    .cue i {
-      position: relative;
-      width: 1px;
-      height: 34px;
+    .hero-sub .btn {
+      text-shadow: none;
+    }
+
+    .motion .hero-copy > * {
+      transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+    }
+
+    .motion .hero-copy > :nth-child(2) {
+      transition-delay: .15s;
+    }
+
+    .motion:not(.loaded) .hero-copy > * {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+    }
+
+    /* ── Ticker: what we automate, sliding past ── */
+    .ticker {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 26px var(--pad);
+    }
+
+    .ticker-label {
+      flex: none;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .ticker-track {
+      flex: 1;
+      display: flex;
+      min-width: 0;
       overflow: hidden;
-      background: var(--line);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
     }
 
-    .cue i::after {
+    .ticker-list {
+      flex: none;
+      display: flex;
+      gap: 48px;
+      padding-right: 48px;
+      list-style: none;
+      font-size: 17px;
+      color: #8d8d8a;
+      white-space: nowrap;
+    }
+
+    .ticker-list li {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .ticker-list li::before {
       content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--fg);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #c4c3bf;
     }
 
-    .motion .cue i::after {
-      animation: cue 2.4s var(--ease) infinite;
+    .motion .ticker-list {
+      animation: ticker 52s linear infinite;
     }
 
-    .motion .hero-foot.gone .cue i::after {
+    .ticker:hover .ticker-list {
       animation-play-state: paused;
     }
 
-    @keyframes cue {
-      0% { transform: translateY(-100%); }
-      65%, 100% { transform: translateY(100%); }
+    @keyframes ticker {
+      to { transform: translate3d(-100%, 0, 0); }
     }
 
-    /* ── Statement ── */
-    .statement {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
-      gap: 32px var(--pad);
-      padding: 24vh var(--pad) 26vh;
-    }
-
-    .statement .label {
-      padding-top: 1.1em;
-    }
-
-    .statement-text {
-      max-width: 19em;
-      font-family: var(--serif);
-      font-size: clamp(30px, 4vw, 64px);
-      line-height: 1.1;
-      letter-spacing: -.012em;
-    }
-
-    .statement-sign {
-      grid-column: 2;
-      display: flex;
-      gap: 28px;
-      color: var(--muted);
-    }
-
-    /* ── Approach: the tangle ── */
-    .motion .approach {
-      height: 240vh;
-    }
-
-    .approach-stage {
-      display: grid;
-      grid-template-rows: auto minmax(0, 1fr) auto;
-      gap: 20px;
-      padding: 104px var(--pad) 52px;
-    }
-
-    .approach-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px 24px;
-    }
-
-    .steps {
+    html:not(.motion) .ticker-list[aria-hidden] {
       display: none;
-      list-style: none;
+    }
+
+    html:not(.motion) .ticker-track {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+
+    html:not(.motion) .ticker-list {
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      white-space: normal;
+    }
+
+    html:not(.motion) .ticker-list li {
       gap: 28px;
-      color: var(--muted);
     }
 
-    .motion .steps {
-      display: flex;
-    }
-
-    .steps li {
+    /* ── The firm ── */
+    .intro {
       display: grid;
-      gap: 10px;
-      min-width: 104px;
-      transition: color .5s;
+      justify-items: center;
+      gap: 24px;
+      padding: var(--space) var(--pad) clamp(72px, 8vw, 120px);
+      text-align: center;
     }
 
-    .steps li.on {
-      color: var(--fg);
+    .intro .h2 {
+      max-width: 15em;
     }
 
-    .steps b {
-      font-weight: 400;
-      margin-right: 8px;
+    .intro-text {
+      max-width: 34em;
+    }
+
+    .intro-sign {
+      font-size: 13px;
       color: var(--muted);
+    }
+
+    /* ── Approach: the tangle ──
+       Without motion (no JS, or reduced motion) this is a plain section.
+       The .motion rules pin it and scrub the drawing with the scroll. */
+    .stage {
+      position: relative;
+      display: grid;
+      gap: 32px;
+      padding: 64px var(--pad) 48px;
+      background: var(--stage);
     }
 
     .tangle-wrap {
       position: relative;
-      height: 62vh;
+      height: min(62vh, 560px);
     }
 
     html:not(.js) .tangle-wrap {
       display: none;
-    }
-
-    .motion .tangle-wrap {
-      height: auto;
     }
 
     .tangle {
@@ -609,42 +685,41 @@
 
     .tangle .edge {
       fill: none;
-      stroke: var(--fg);
+      stroke: var(--ink);
       stroke-width: 1;
       stroke-linecap: round;
     }
 
     .tangle .edge.chain {
-      stroke-width: 1.3;
+      stroke-width: 1.4;
     }
 
     .tangle .ring {
-      fill: var(--bg);
-      stroke: var(--fg);
+      fill: var(--stage);
+      stroke: var(--ink);
       stroke-width: 1.2;
     }
 
     .tangle .core {
-      fill: var(--fg);
+      fill: var(--ink);
     }
 
     .tangle .human {
       fill: none;
       stroke: var(--accent);
-      stroke-width: 1;
+      stroke-width: 1.2;
     }
 
     .tangle .lbl {
-      font-family: var(--mono);
-      font-size: 10.5px;
-      letter-spacing: .1em;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .08em;
       fill: var(--muted);
     }
 
     .tangle .note {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 17px;
+      font-family: var(--sans);
+      font-size: 14px;
       fill: var(--muted);
     }
 
@@ -652,447 +727,529 @@
       fill: var(--accent);
     }
 
-    .captions {
+    .chapters {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 32px;
-    }
-
-    .motion .captions {
-      grid-template-columns: minmax(0, 36rem);
-    }
-
-    /* The outgoing caption leaves quickly; the next one waits, then settles. */
-    .motion .caption {
-      grid-area: 1 / 1;
-      opacity: 0;
-      transition: opacity .3s var(--ease);
-    }
-
-    .motion .caption.on {
-      opacity: 1;
-      transition: opacity .7s var(--ease) .15s;
-    }
-
-    .caption h2 {
-      margin: 10px 0 12px;
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(30px, 3.3vw, 54px);
-      line-height: 1.02;
-      letter-spacing: -.015em;
-    }
-
-    .caption p {
-      max-width: 40ch;
-      color: var(--muted);
-    }
-
-    /* ── Practice: an intro row, then the four services side by side ── */
-    .track {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      padding: 24vh var(--pad) 20vh;
-    }
-
-    .panel {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-      padding: 36px 28px 8px 24px;
-      border-left: 1px solid var(--line);
-    }
-
-    /* Headings line up under the numbers; the terms line up along the bottom. */
-    .panel > div {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .panel-intro {
-      grid-column: 1 / -1;
-      min-height: 0;
-      gap: 0;
-      padding: 0 0 64px;
-      border-left: 0;
-    }
-
-    .panel-intro > div {
-      display: grid;
-      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-      gap: 24px var(--pad);
-      align-items: end;
-      margin-top: 18px;
-    }
-
-    .panel-intro h2 {
-      max-width: 8em;
-    }
-
-    .panel-intro p {
-      max-width: 34ch;
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .panel-intro .label {
-      margin-bottom: 0;
-    }
-
-    .panel-num {
-      display: block;
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: clamp(88px, 8vw, 150px);
-      line-height: .8;
-      color: var(--accent);
-    }
-
-    .panel h3 {
-      margin-bottom: 16px;
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(34px, 3.1vw, 52px);
-      line-height: 1;
-      letter-spacing: -.01em;
-    }
-
-    .panel p {
-      max-width: 34ch;
-      margin-bottom: 28px;
-      color: var(--muted);
-    }
-
-    .meta {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 8px 20px;
-      margin-top: auto;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-    }
-
-    .meta dt {
-      color: var(--muted);
-      padding-top: 3px;
-    }
-
-    .meta dd {
-      font-size: 14px;
-    }
-
-    /* With four columns the panels share rows, so numbers, headings, text and
-       terms line up across the page even when one line wraps. */
-    @supports (grid-template-rows: subgrid) {
-      @media (min-width: 1181px) {
-        .panel:not(.panel-intro) {
-          display: grid;
-          grid-row: span 4;
-          grid-template-rows: subgrid;
-          row-gap: 0;
-        }
-
-        .panel:not(.panel-intro) > div {
-          display: contents;
-        }
-
-        .panel-num {
-          margin-bottom: 36px;
-        }
-
-        .meta {
-          align-self: start;
-          margin-top: 0;
-        }
-      }
-    }
-
-    @media (max-width: 1180px) {
-      .track {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: 48px;
-      }
-    }
-
-    /* ── Discretion ── */
-    .discretion,
-    .clients {
-      display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      gap: 48px var(--pad);
-      padding: 24vh var(--pad) 16vh;
-    }
-
-    .discretion-head {
-      align-self: start;
-      position: sticky;
-      top: 22vh;
-    }
-
-    .discretion-head h2,
-    .clients h2 {
-      margin: 18px 0 20px;
-    }
-
-    .discretion-head p {
-      max-width: 30ch;
-      color: var(--muted);
-    }
-
-    .terms {
+      gap: var(--gap);
       list-style: none;
     }
 
-    .term {
-      position: relative;
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr);
-      gap: 4px 20px;
-      padding: 34px 0 40px;
+    .chapter-head {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 36px;
+      padding: 5px 6px 5px 15px;
+      border-radius: 999px;
+      background: rgba(13, 16, 22, .46);
+      color: #fff;
+      font-size: 14px;
+      line-height: 1;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      transition: background-color .5s var(--ease);
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .term::before,
-    .case::before {
+    .chapter-head[role="button"] {
+      cursor: pointer;
+    }
+
+    /* A small plus that turns into a cross while its chapter is open. */
+    .chapter-head i {
+      position: relative;
+      flex: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .2);
+      transition: transform .5s var(--ease);
+    }
+
+    .chapter-head i::before,
+    .chapter-head i::after {
       content: '';
       position: absolute;
-      left: 0;
-      right: 0;
+      left: 50%;
+      top: 50%;
+      width: 9px;
+      height: 1.2px;
+      margin: -.6px 0 0 -4.5px;
+      background: currentColor;
+    }
+
+    .chapter-head i::after {
+      transform: rotate(90deg);
+    }
+
+    .chapter-body {
+      display: grid;
+      grid-template-rows: 1fr;
+    }
+
+    .chapter-card {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .chapter-card > div {
+      margin-top: 8px;
+      padding: 18px 20px 20px;
+      border-radius: 16px;
+      background: rgba(13, 16, 22, .88);
+      color: #fff;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .chapter h3 {
+      margin-bottom: 8px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.15;
+      letter-spacing: -.012em;
+    }
+
+    .chapter p {
+      font-size: 14.5px;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .scrub {
+      display: none;
+    }
+
+    .motion .approach .pin {
+      height: 260vh;
+    }
+
+    .motion .stage {
+      position: sticky;
       top: 0;
-      height: 1px;
-      background: var(--line);
-      transform: scaleX(var(--l, 1));
+      display: block;
+      height: 100vh;
+      height: 100svh;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .motion .tangle-wrap {
+      position: absolute;
+      top: calc(var(--nav) + 32px);
+      bottom: 56px;
+      left: calc(var(--pad) + 400px);
+      right: calc(var(--pad) + 16px);
+      height: auto;
+    }
+
+    .motion .chapters {
+      position: absolute;
+      left: var(--pad);
+      bottom: 76px;
+      width: 344px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .motion .chapter {
+      width: 100%;
+    }
+
+    .motion .chapter-body {
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .6s var(--ease);
+    }
+
+    .motion .chapter.on .chapter-body {
+      grid-template-rows: 1fr;
+    }
+
+    .motion .chapter-card > div {
+      opacity: 0;
+      transition: opacity .25s var(--ease);
+    }
+
+    .motion .chapter.on .chapter-card > div {
+      opacity: 1;
+      transition: opacity .6s var(--ease) .18s;
+    }
+
+    .motion .chapter.on .chapter-head {
+      background: rgba(13, 16, 22, .88);
+    }
+
+    .motion .chapter.on .chapter-head i {
+      transform: rotate(45deg);
+    }
+
+    html:not(.motion) .chapter-head i {
+      display: none;
+    }
+
+    .motion .scrub {
+      display: block;
+      position: absolute;
+      left: var(--pad);
+      bottom: 34px;
+      width: 96px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgba(13, 16, 22, .4);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .scrub span {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 10px;
+      height: 2px;
+      border-radius: 1px;
+      background: rgba(255, 255, 255, .28);
+      overflow: hidden;
+    }
+
+    .scrub i {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      transform: scaleX(0);
       transform-origin: left;
     }
 
-    .term-num {
-      padding-top: 14px;
+    .approach-after {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px 48px;
+      padding: 40px var(--pad) 0;
+    }
+
+    .approach-after p {
+      max-width: 27em;
+    }
+
+    /* ── Practice: four cards, each with a small picture of the work ── */
+    .practice {
+      padding: var(--space) var(--pad) 0;
+    }
+
+    .practice-head {
+      display: grid;
+      gap: 22px;
+      max-width: 32em;
+      margin-bottom: clamp(48px, 6vw, 88px);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 48px var(--gap);
+    }
+
+    .card h3 {
+      margin: 20px 0 8px;
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 1.2;
+      letter-spacing: -.012em;
+    }
+
+    .card > p {
+      max-width: 34ch;
+      font-size: 15px;
+      line-height: 1.34;
       color: var(--muted);
     }
 
-    .term h3 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(30px, 3vw, 48px);
-      line-height: 1.06;
+    .card-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 14px;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .card-meta dt {
+      color: var(--muted);
+    }
+
+    .art {
+      position: relative;
+      aspect-ratio: 1 / .88;
+      overflow: hidden;
+      border-radius: 4px;
+      background: linear-gradient(160deg, #f1f1ef 0%, #e4e4e1 100%);
+    }
+
+    .ui {
+      position: absolute;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .04), 0 24px 48px -22px rgba(0, 0, 0, .28);
+      font-size: 12px;
+      line-height: 1.3;
+      color: var(--ink);
+      transition: transform .9s var(--ease);
+    }
+
+    .card:hover .ui {
+      transform: translate3d(0, -4px, 0);
+    }
+
+    .ui-kicker {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .ui-title {
+      font-size: 15px;
       letter-spacing: -.01em;
     }
 
-    .term p {
-      grid-column: 2;
-      max-width: 46ch;
-      margin-top: 10px;
-      color: var(--muted);
-    }
-
-    /* Each term arrives once: the rule draws, then the words settle under it. */
-    .motion .term::before {
-      transform: scaleX(0);
-      transition: transform 1.5s var(--ease);
-    }
-
-    .motion .term > * {
-      opacity: 0;
-      transform: translate3d(0, 12px, 0);
-      transition: opacity .7s var(--ease) .15s, transform .7s var(--ease) .15s;
-    }
-
-    .motion .term.in::before,
-    .motion .term.in > * {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── Clients ── */
-    .clients {
-      padding: 14vh var(--pad) 24vh;
-    }
-
-    .lede {
-      max-width: 24em;
-      margin-bottom: 48px;
-      font-family: var(--serif);
-      font-size: clamp(24px, 2.4vw, 38px);
-      line-height: 1.2;
-    }
-
-    .sectors {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 36px;
-    }
-
-    .sectors li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-      font-size: 18px;
-    }
-
-    .sectors li span {
-      color: var(--muted);
-    }
-
-    /* ── Contact ── */
-    .contact {
-      padding: 26vh var(--pad) 14vh;
-    }
-
-    .contact-title {
-      margin: 24px 0 9vh;
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(64px, 13vw, 230px);
-      line-height: .9;
-      letter-spacing: -.03em;
-    }
-
-    .contact-title em {
-      color: var(--accent);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      gap: 40px var(--pad);
-      align-items: end;
-    }
-
-    .contact-grid > p {
-      max-width: 40ch;
-      color: var(--muted);
-    }
-
-    .email {
+    .tag {
       display: inline-block;
-      font-family: var(--serif);
-      font-size: clamp(24px, 3.6vw, 60px);
-      line-height: 1.1;
-      overflow-wrap: anywhere;
-    }
-
-    .email::after {
-      transform: scaleX(1);
-      transform-origin: left;
-      opacity: .35;
-    }
-
-    .email:hover::after,
-    .email:focus-visible::after {
-      animation: sweep .9s var(--ease);
-      opacity: 1;
-    }
-
-    @keyframes sweep {
-      0% { transform: scaleX(1); transform-origin: right; }
-      45% { transform: scaleX(0); transform-origin: right; }
-      46% { transform: scaleX(0); transform-origin: left; }
-      100% { transform: scaleX(1); transform-origin: left; }
-    }
-
-    .contact-meta {
-      display: grid;
-      grid-template-columns: repeat(3, auto);
-      justify-content: start;
-      gap: 16px 56px;
-      margin-top: 44px;
-    }
-
-    .contact-meta dt {
-      margin-bottom: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #f0efec;
       color: var(--muted);
-    }
-
-    /* ── Footer ── */
-    .footer {
-      padding: 0 var(--pad) 100px;
-    }
-
-    .wordmark {
-      overflow: hidden;
-      padding-top: .08em;
-      font-family: var(--serif);
-      font-size: 30vw;
-      line-height: .8;
-      letter-spacing: -.02em;
+      font-size: 10.5px;
+      font-weight: 400;
       white-space: nowrap;
     }
 
-    .wordmark-in {
-      display: inline-block;
-      padding-right: .04em;
+    .tag.warn {
+      background: #f3ece1;
+      color: #7a5a2c;
     }
 
-    .wordmark span {
-      display: inline-block;
+    .ui-map {
+      left: 11%;
+      right: -16%;
+      top: 13%;
+      padding: 16px 18px 6px;
     }
 
-    /* The wordmark rises once out of its own mask, like the headline did. */
-    .motion .wordmark-in {
-      transform: translate3d(0, 105%, 0);
-      transition: transform 1.5s var(--ease);
+    .ui-map .ui-title {
+      margin: 2px 0 10px;
     }
 
-    .motion .wordmark.in .wordmark-in {
-      transform: none;
+    .ui-steps {
+      list-style: none;
     }
 
-    .wordmark .amp {
-      margin: 0 .12em;
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .footer-row {
+    .ui-steps li {
+      position: relative;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px 32px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .footer-row a:hover {
-      color: var(--fg);
-    }
-
-    /* ── Voice and Results share a two-column layout ── */
-    .voice,
-    .cases {
-      display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      gap: 48px var(--pad);
-      padding: 24vh var(--pad) 20vh;
-    }
-
-    .voice {
       align-items: center;
-      overflow-x: clip;
+      gap: 8px;
+      padding: 9px 0 9px 20px;
+      border-top: 1px solid #f0efec;
     }
 
-    .cases-head {
-      align-self: start;
-      position: sticky;
-      top: 22vh;
+    .ui-steps li::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      margin-top: -3.5px;
+      border-radius: 50%;
+      border: 1.2px solid var(--ink);
+      background: #fff;
     }
 
-    .voice-copy h2,
-    .cases-head h2 {
-      margin: 18px 0 20px;
+    .ui-call {
+      left: 10%;
+      right: 10%;
+      top: 16%;
+      padding: 14px 16px 14px;
     }
 
-    .voice-copy p:not(.label),
-    .cases-head p:not(.label) {
-      max-width: 34ch;
+    .ui-call-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ui-call-top time {
+      margin-left: auto;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ui-orb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, #fff6e6 0, #f1cf96 22%, #8a6a3e 60%, #241d14 100%);
+    }
+
+    .ui-wave {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 44px;
+      margin: 12px 0 10px;
+    }
+
+    .ui-wave i {
+      flex: 1;
+      height: calc(var(--h) * 100%);
+      min-height: 3px;
+      border-radius: 2px;
+      background: var(--ink);
+      opacity: .85;
+    }
+
+    .ui-checks {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .ui-checks li {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .ui-checks li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .ui-checks li::after {
+      content: '';
+      position: absolute;
+      left: 5.5px;
+      top: 3px;
+      width: 3.5px;
+      height: 7px;
+      border: solid #fff;
+      border-width: 0 1.4px 1.4px 0;
+      transform: rotate(45deg);
+    }
+
+    .ui-call .ui-checks {
+      padding-top: 10px;
+      border-top: 1px solid #f0efec;
+    }
+
+    .ui-doc {
+      left: 15%;
+      right: 15%;
+      top: 12%;
+      bottom: -10%;
+      padding: 18px;
+    }
+
+    .ui-doc-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0efec;
+    }
+
+    .ui-lines {
+      display: grid;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .ui-lines i {
+      height: 6px;
+      border-radius: 3px;
+      background: #f0efec;
+    }
+
+    .ui-lines i:nth-child(2) { width: 82%; }
+    .ui-lines i:nth-child(3) { width: 64%; }
+
+    .ui-thread {
+      position: absolute;
+      left: 9%;
+      right: 9%;
+      top: 50%;
+      display: grid;
+      gap: 12px;
+      transform: translateY(-50%);
+    }
+
+    .bubble {
+      max-width: 82%;
+      padding: 11px 14px 12px;
+      border-radius: 14px 14px 14px 4px;
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .04), 0 18px 36px -20px rgba(0, 0, 0, .28);
+      font-size: 12.5px;
+      line-height: 1.35;
+      transition: transform .9s var(--ease);
+    }
+
+    .bubble span {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 10.5px;
       color: var(--muted);
     }
 
-    /* ── Voice: the plasma ball ── */
+    .bubble.me {
+      justify-self: end;
+      border-radius: 14px 14px 4px 14px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .bubble.me span {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .card:hover .bubble {
+      transform: translate3d(0, -4px, 0);
+    }
+
+    .card:hover .bubble.me {
+      transition-delay: .06s;
+    }
+
+    /* ── Voice: the plasma ball, in a dark room of its own ── */
+    .voice {
+      padding: var(--space) var(--pad) 0;
+    }
+
+    .voice-head {
+      display: grid;
+      justify-items: center;
+      gap: 22px;
+      margin-bottom: clamp(40px, 5vw, 72px);
+      text-align: center;
+    }
+
+    .voice-head p {
+      max-width: 33em;
+    }
+
+    .voice-panel {
+      overflow: hidden;
+      padding: clamp(40px, 6vw, 88px) var(--pad) clamp(44px, 6vw, 80px);
+      border-radius: 6px;
+      background: radial-gradient(ellipse 70% 60% at 50% 38%, #1c1f27 0%, var(--night) 70%);
+      color: var(--on-dark);
+    }
+
     .orb-stage {
       display: grid;
       justify-items: center;
@@ -1101,7 +1258,7 @@
 
     .orb {
       position: relative;
-      width: min(520px, 100%);
+      width: min(440px, 76vw);
       aspect-ratio: 1;
       padding: 0;
       border: 0;
@@ -1113,7 +1270,7 @@
     }
 
     .orb:focus-visible {
-      outline: 1px solid var(--fg);
+      outline: 1px solid var(--on-dark);
       outline-offset: 14px;
     }
 
@@ -1141,8 +1298,16 @@
       display: none;
     }
 
-    .orb.flat .orb-fallback {
+    .orb.flat .orb-fallback,
+    html:not(.js) .orb-fallback {
       display: block;
+    }
+
+    /* Without the script there is no sound and no clock to show. */
+    html:not(.js) .orb-hint,
+    html:not(.js) .cta-clocks,
+    html:not(.js) .clock {
+      display: none;
     }
 
     .motion .orb.flat .orb-fallback {
@@ -1158,19 +1323,20 @@
     }
 
     .orb-hint {
-      color: var(--muted);
+      font-size: 13px;
+      color: var(--on-dark-muted);
     }
 
     .orb-words {
-      max-width: 28em;
-      font-family: var(--serif);
-      font-size: clamp(20px, 1.7vw, 26px);
-      line-height: 1.3;
+      max-width: 30em;
+      font-size: clamp(18px, 1.5vw, 22px);
+      line-height: 1.4;
+      letter-spacing: -.01em;
       text-align: center;
     }
 
     .orb-words span {
-      opacity: .25;
+      opacity: .28;
       transition: opacity .3s;
     }
 
@@ -1178,59 +1344,362 @@
       opacity: 1;
     }
 
-    /* ── Results ── */
-    .case {
-      position: relative;
+    /* ── Results: one figure per row, ruled like a report ── */
+    .cases {
       display: grid;
-      grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
-      gap: 12px 40px;
-      padding: 36px 0 44px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 48px var(--gap);
+      padding: var(--space) var(--pad) 0;
     }
 
-    .motion .case {
-      --l: 0;
+    .cases-head {
+      display: grid;
+      align-content: start;
+      gap: 22px;
+    }
+
+    .cases-head p {
+      max-width: 30em;
+    }
+
+    .case {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+      gap: 12px 24px;
+      padding: 18px 0 72px;
+      border-top: 1px solid var(--line);
     }
 
     .case-stat {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: clamp(64px, 6.6vw, 112px);
-      line-height: .9;
-      color: var(--accent);
+      font-weight: 300;
+      font-size: clamp(56px, 5.6vw, 88px);
+      line-height: .95;
+      letter-spacing: -.045em;
       white-space: nowrap;
     }
 
     .case-metric {
       max-width: 22ch;
-      margin-top: 14px;
+      margin-top: 12px;
+      font-size: 13px;
       color: var(--muted);
     }
 
     .case-quote {
-      font-family: var(--serif);
-      font-size: clamp(24px, 2.1vw, 34px);
-      line-height: 1.22;
+      font-size: 17px;
+      line-height: 1.38;
     }
 
     .case-who {
-      margin-top: 18px;
+      margin-top: 14px;
+      font-size: 13px;
       color: var(--muted);
     }
 
-    /* ── Floating menu: a small pill near the bottom that opens upward ── */
+    /* ── Clients: a sand band ── */
+    .clients {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 40px var(--gap);
+      margin-top: var(--space);
+      padding: clamp(56px, 6vw, 88px) var(--pad) clamp(72px, 8vw, 120px);
+      background: var(--sand);
+    }
+
+    .clients-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 32px var(--gap);
+    }
+
+    .clients-body > p {
+      max-width: 26em;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .sectors {
+      list-style: none;
+      font-size: 15px;
+    }
+
+    .sectors li {
+      padding: 9px 0 10px;
+      border-top: 1px solid rgba(13, 16, 22, .12);
+    }
+
+    /* ── Discretion: a dark band with the five terms in a ruled row ── */
+    .discretion {
+      padding: clamp(56px, 6vw, 88px) var(--pad) var(--pad);
+      background: var(--night);
+      color: var(--on-dark);
+    }
+
+    .discretion-head {
+      display: grid;
+      gap: 18px;
+      max-width: 30em;
+      margin-bottom: clamp(96px, 14vw, 200px);
+    }
+
+    .discretion-head p {
+      font-size: 15px;
+      color: var(--on-dark-muted);
+    }
+
+    .terms {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1px;
+      list-style: none;
+      border: 1px solid var(--on-dark-line);
+      background: var(--on-dark-line);
+    }
+
+    .term {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 280px;
+      padding: 28px 28px 26px;
+      background: var(--night);
+    }
+
+    .term h3 {
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.25;
+      letter-spacing: -.01em;
+    }
+
+    .term p {
+      max-width: 30ch;
+      font-size: 13.5px;
+      line-height: 1.42;
+      color: var(--on-dark-muted);
+    }
+
+    /* A small seal, like a certificate mark. */
+    .seal {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      margin-top: auto;
+      border: 1px solid rgba(244, 243, 240, .5);
+      border-radius: 50%;
+      font-size: 8.5px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--on-dark);
+    }
+
+    .seal::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px dashed rgba(244, 243, 240, .28);
+      border-radius: 50%;
+    }
+
+    /* ── Contact: a card in the house colour ── */
+    .contact {
+      padding: var(--space) var(--pad);
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--gap);
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: clamp(20px, 2vw, 28px);
+      border-radius: 12px;
+      background: var(--deep);
+      color: #fff;
+    }
+
+    .cta-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 6px 4px;
+    }
+
+    .cta-copy p {
+      max-width: 25em;
+      font-size: 15px;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .cta-copy .btn {
+      margin-top: auto;
+    }
+
+    .cta-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 48px;
+      min-height: 380px;
+      padding: clamp(20px, 2.4vw, 32px);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    .cta-clocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+    }
+
+    .cta-clocks span {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cta-clocks time {
+      font-weight: 300;
+      font-size: clamp(44px, 5vw, 72px);
+      line-height: 1;
+      letter-spacing: -.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cta-meta div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 11px 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .cta-meta dt {
+      color: var(--muted);
+    }
+
+    .cta-meta dd {
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .cta-meta a {
+      border-bottom: 1px solid var(--line);
+      transition: border-color .3s;
+    }
+
+    .cta-meta a:hover {
+      border-color: currentColor;
+    }
+
+    /* ── Footer ── */
+    /* The bottom padding leaves room for the floating menu under the last row. */
+    .footer {
+      padding: clamp(48px, 5vw, 64px) var(--pad) 96px;
+      background: #fff;
+    }
+
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 36px var(--gap);
+      font-size: 14px;
+    }
+
+    .footer-cols p {
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .footer-cols ul {
+      display: grid;
+      gap: 7px;
+      list-style: none;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-cols a {
+      transition: color .3s;
+    }
+
+    .footer-cols a:hover {
+      color: var(--accent);
+    }
+
+    .wordmark {
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      margin: clamp(80px, 11vw, 160px) 0 clamp(56px, 7vw, 104px);
+      padding-top: .06em;
+      font-family: var(--serif);
+      font-size: clamp(92px, 15vw, 248px);
+      line-height: .84;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+      color: var(--deep);
+    }
+
+    .wordmark-in {
+      display: inline-block;
+    }
+
+    .wordmark .amp {
+      margin: 0 .1em;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* The wordmark rises once out of its own mask. */
+    .motion .wordmark-in {
+      transform: translate3d(0, 105%, 0);
+      transition: transform 1.5s var(--ease);
+    }
+
+    .motion .wordmark.in .wordmark-in {
+      transform: none;
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 32px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-row a:hover {
+      color: var(--ink);
+    }
+
+    /* ── Floating menu: a dark pill near the bottom that opens upward ── */
     .dock {
       position: fixed;
       left: 50%;
       bottom: calc(18px + env(safe-area-inset-bottom, 0px));
-      z-index: 95;
+      z-index: 120;
       transform: translateX(-50%);
       transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
     }
 
+    /* Without the script the bar at the top does the job on its own. */
+    html:not(.js) .dock {
+      display: none;
+    }
+
     /* Out of the way on the opening screen; it fades in once you scroll. */
-    .js .dock:not(.show) {
+    .dock:not(.show) {
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
     }
 
     .motion .dock:not(.show) {
@@ -1239,20 +1708,24 @@
 
     .dock-toggle {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      padding: 12px 18px 12px 20px;
-      border: 1px solid var(--line);
+      gap: 14px;
+      min-width: 210px;
+      min-height: 44px;
+      padding: 0 18px 0 20px;
       border-radius: 999px;
-      background: var(--bg);
-      color: var(--fg);
+      background: rgba(13, 16, 22, .8);
+      color: #fff;
       font-size: 14px;
       line-height: 1;
       white-space: nowrap;
       list-style: none;
       cursor: pointer;
       user-select: none;
-      box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .35);
+      -webkit-backdrop-filter: blur(14px) saturate(1.3);
+      backdrop-filter: blur(14px) saturate(1.3);
+      box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .45);
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -1260,13 +1733,9 @@
       display: none;
     }
 
-    .dock-toggle:focus-visible {
-      outline: 1px solid var(--fg);
-      outline-offset: 4px;
-    }
-
     .dock-here {
-      color: var(--muted);
+      margin-right: auto;
+      color: rgba(255, 255, 255, .58);
     }
 
     .dock-here:empty {
@@ -1275,11 +1744,15 @@
 
     /* Points up while closed, since the list opens upward. */
     .dock-caret {
+      flex: none;
       width: 7px;
       height: 7px;
-      border-top: 1px solid currentColor;
-      border-left: 1px solid currentColor;
+      border-top: 1.2px solid currentColor;
+      border-left: 1.2px solid currentColor;
       transform: translateY(2px) rotate(45deg);
+    }
+
+    .motion .dock-caret {
       transition: transform .3s var(--ease);
     }
 
@@ -1292,13 +1765,15 @@
       left: 50%;
       bottom: calc(100% + 10px);
       min-width: 248px;
-      max-height: calc(100vh - 96px);
+      max-height: calc(100vh - 100px);
+      max-height: calc(100svh - 100px);
       overflow-y: auto;
-      padding: 8px;
+      padding: 6px;
       border: 1px solid var(--line);
       border-radius: 16px;
       background: var(--bg);
-      box-shadow: 0 18px 50px -18px rgba(0, 0, 0, .4);
+      color: var(--ink);
+      box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .35);
       transform: translateX(-50%);
     }
 
@@ -1320,39 +1795,29 @@
     .dock-list a,
     .dock-foot a {
       display: flex;
-      align-items: baseline;
-      gap: 14px;
-      padding: 10px 12px;
-      border-radius: 10px;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 14px;
+      border-radius: 11px;
       font-size: 15px;
       transition: background-color .3s var(--ease), color .3s var(--ease);
     }
 
     .dock-list a:hover,
     .dock-foot a:hover {
-      background: color-mix(in srgb, var(--fg) 7%, transparent);
+      background: #efefec;
     }
 
     .dock a:focus-visible {
-      outline: 1px solid var(--fg);
-      outline-offset: -1px;
-    }
-
-    .dock-num {
-      min-width: 1.8em;
-      color: var(--muted);
-    }
-
-    .dock-num:empty {
-      display: none;
+      outline: 2px solid var(--ink);
+      outline-offset: -2px;
     }
 
     /* A brass dot marks the section you are reading. */
     .dock-list a[aria-current]::after {
       content: '';
-      align-self: center;
-      width: 5px;
-      height: 5px;
+      width: 6px;
+      height: 6px;
       margin-left: auto;
       border-radius: 50%;
       background: var(--accent);
@@ -1361,7 +1826,7 @@
     .dock-foot {
       display: flex;
       justify-content: space-between;
-      gap: 8px;
+      gap: 6px;
       margin-top: 6px;
       padding-top: 6px;
       border-top: 1px solid var(--line);
@@ -1373,14 +1838,14 @@
     }
 
     .dock-foot a:hover {
-      color: var(--fg);
+      color: var(--ink);
     }
 
     /* ── Scroll reveals ── */
     .motion [data-reveal] {
       opacity: 0;
-      transform: translate3d(0, 12px, 0);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
+      transform: translate3d(0, 24px, 0);
+      transition: opacity 1s var(--ease), transform 1s var(--ease);
       transition-delay: calc(var(--d, 0) * 1ms);
     }
 
@@ -1390,119 +1855,153 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 860px) {
-      .nav {
-        grid-template-columns: 1fr auto;
-        padding-block: 18px;
+    @media (max-width: 1100px) {
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .links a:not(.keep),
-      .clock,
-      .rail {
+      .terms {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .term:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+      }
+
+      .term {
+        min-height: 230px;
+      }
+    }
+
+    @media (max-width: 1100px) and (min-width: 861px) {
+      .clock {
+        display: none;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .announce-long {
         display: none;
       }
 
-      .motion .hero {
-        height: 160vh;
+      .announce-short {
+        display: inline;
       }
 
-      .hero .sticky {
-        padding-bottom: 90px;
+      .announce {
+        font-size: 12px;
       }
 
-      .hero-note {
-        position: static;
-        margin-top: 32px;
+      .nav {
+        grid-template-columns: auto 1fr;
       }
 
-      .statement,
-      .discretion,
+      .links,
+      .clock {
+        display: none;
+      }
+
+      .brand {
+        justify-self: start;
+      }
+
       .clients,
-      .contact-grid,
-      .voice,
-      .cases,
-      .case {
+      .cta,
+      .cases {
         grid-template-columns: 1fr;
       }
 
-      .cases-head {
-        position: static;
-      }
-
-      .orb {
-        width: min(520px, 86vw);
-      }
-
-      .statement {
-        padding-block: 18vh 20vh;
-      }
-
-      .statement-sign {
-        grid-column: 1;
-      }
-
-      .discretion-head {
-        position: static;
-      }
-
-      .approach-stage {
-        padding-top: 84px;
-        padding-bottom: 36px;
-      }
-
-      .approach-top {
+      .approach-after {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .motion .steps {
-        display: none;
-      }
-
-      .captions {
+      .chapters {
         grid-template-columns: 1fr;
       }
 
-      .caption p {
-        font-size: 15px;
+      .footer-cols {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta-panel {
+        min-height: 0;
+      }
+    }
+
+    /* The pinned stage stacks on narrow screens: drawing on top, chapters below.
+       Landscape phones keep the side-by-side layout, which fits them better. */
+    @media (max-width: 860px) and (max-aspect-ratio: 4/3), (max-width: 639px) {
+      .motion .tangle-wrap {
+        top: calc(var(--nav) + 12px);
+        left: var(--pad);
+        right: var(--pad);
+        bottom: 330px;
+      }
+
+      .motion .chapters {
+        left: var(--pad);
+        right: var(--pad);
+        bottom: 62px;
+        width: auto;
+      }
+
+      .motion .scrub {
+        bottom: 24px;
+      }
+    }
+
+    @media (max-width: 860px) and (min-aspect-ratio: 4/3) and (min-width: 640px) {
+      .motion .tangle-wrap {
+        top: calc(var(--nav) + 8px);
+        bottom: 24px;
+        left: calc(var(--pad) + 316px);
+      }
+
+      .motion .chapters {
+        width: 300px;
+        bottom: 54px;
+      }
+
+      .motion .scrub {
+        bottom: 20px;
+      }
+
+      .chapter p {
+        font-size: 13.5px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cards,
+      .clients-body,
+      .terms {
+        grid-template-columns: 1fr;
       }
 
       .term {
-        grid-template-columns: 36px minmax(0, 1fr);
-        gap: 4px 12px;
-      }
-
-      .track {
-        grid-template-columns: 1fr;
-        row-gap: 0;
-        padding-block: 18vh 14vh;
-      }
-
-      .panel {
         min-height: 0;
+        gap: 8px;
+      }
+
+      .seal {
+        margin-top: 18px;
+      }
+
+      .ticker {
         gap: 20px;
-        padding: 28px 0 40px;
-        border-left: 0;
-        border-top: 1px solid var(--line);
       }
 
-      .panel-intro {
-        gap: 0;
-        padding-top: 0;
-        border-top: 0;
+      .ticker-label {
+        display: none;
       }
 
-      .panel-intro > div {
+      .cta-clocks time {
+        font-size: 44px;
+      }
+
+      .case {
         grid-template-columns: 1fr;
-      }
-
-      .sectors {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-meta {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px 32px;
       }
     }
   </style>
@@ -1510,280 +2009,372 @@
 <body>
 
   <a class="skip" href="#main">Skip to content</a>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="rail" aria-hidden="true">
-    <div class="index hide mono"><span class="index-num">01</span><span class="index-label">The firm</span></div>
-    <div class="progress"><span></span></div>
-  </div>
 
-  <!-- Navigation -->
-  <header class="nav">
-    <a class="brand" href="#top" aria-label="K &amp; Co, back to top">
-      <span class="brand-name">K <em>&amp;</em> Co</span>
+  <!-- Header: a banner pointing at the voice demo, then the bar -->
+  <header class="top">
+    <a class="announce" href="#voice">
+      <span class="announce-long">Voice receptionists that speak more than seventy languages.</span>
+      <span class="announce-short">Voice agents in seventy-plus languages.</span>
+      <span class="announce-more">Hear one <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
     </a>
-    <nav class="links" aria-label="Primary">
-      <a href="#approach">Approach</a>
-      <a href="#practice">Practice</a>
-      <a href="#discretion">Discretion</a>
-      <a class="keep" href="#contact">Contact</a>
-    </nav>
-    <div class="clock mono"><i aria-hidden="true"></i><span>London</span><time data-tz="Europe/London">--:--</time><span>Dubai</span><time data-tz="Asia/Dubai">--:--</time></div>
+    <div class="nav">
+      <nav class="links" aria-label="Primary">
+        <a href="#approach">Approach</a>
+        <a href="#practice">Practice</a>
+        <a href="#voice">Voice</a>
+        <a href="#discretion">Discretion</a>
+      </nav>
+      <a class="brand" href="#top" aria-label="K &amp; Co, back to top">K <em>&amp;</em> Co</a>
+      <div class="nav-end">
+        <div class="clock"><span>London</span><time data-tz="Europe/London">--:--</time><span>Dubai</span><time data-tz="Asia/Dubai">--:--</time></div>
+        <a class="btn" href="#contact">Write to us <span class="btn-arrow"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span></a>
+      </div>
+    </div>
   </header>
+
+  <!-- Floating menu. A native <details>, so it opens and closes on its own;
+       the script adds the current section and closing on Escape, outside
+       clicks and link picks. When the Results section is switched on, add
+       its link (#results) between Voice and Clients. -->
+  <details class="dock">
+    <summary class="dock-toggle">
+      <span class="dock-label">Menu</span>
+      <span class="dock-here" aria-hidden="true"></span>
+      <i class="dock-caret" aria-hidden="true"></i>
+    </summary>
+    <nav class="dock-panel" aria-label="Sections">
+      <ul class="dock-list">
+        <li><a href="#firm">The firm</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#voice">Voice</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#discretion">Discretion</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="dock-foot">
+        <a href="mailto:office@kiselevconsultants.com">Write to us</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </nav>
+  </details>
 
   <main id="main">
 
-    <!-- Hero: the sentence goes quiet as you scroll; "Quietly." stays -->
-    <section class="hero pin" id="top" data-tone="light">
-      <div class="sticky">
-        <div class="hero-inner">
-          <p class="hero-label mono">Private advisory on AI and operations</p>
-          <h1 class="hero-title">
-            <span class="line"><span class="line-in" style="--i:0">We automate</span></span>
-            <span class="line"><span class="line-in" style="--i:1">the work behind</span></span>
-            <span class="line"><span class="line-in" style="--i:2">well-run companies.</span></span>
-            <span class="line"><span class="line-in" style="--i:3"><em class="quiet">Quietly.</em></span></span>
-          </h1>
-        </div>
-        <p class="hero-note">We don't publish client names. If you hire us, nobody hears about it from us.</p>
-        <div class="hero-foot mono">
-          <span>London 51.5072° N, 0.1276° W<br />Dubai 25.2048° N, 55.2708° E</span>
-          <span class="cue">Scroll<i aria-hidden="true"></i></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Statement -->
-    <section class="statement" id="firm" data-tone="light" data-label="The firm">
-      <p class="label mono"><span class="num"></span> · The firm</p>
-      <p class="statement-text" data-reveal>K &amp; Co is an advisory firm in London and Dubai. We build AI systems that take the repetitive work off your staff: the phone nobody has time to answer, say, or the hundred small handoffs that still happen over email. Behind the work is a large team, every one of them hand-picked, and we'd rather stay with a client for years than leave after one project.</p>
-      <p class="statement-sign mono" data-reveal><span>Founded by Peter Kiselev</span><span>London · Dubai</span></p>
-    </section>
-
-    <!-- Approach: a tangle of systems straightens into one line -->
-    <section class="approach pin" id="approach" data-tone="dark" data-label="Approach">
-      <div class="sticky approach-stage">
-        <div class="approach-top">
-          <p class="label mono"><span class="num"></span> · Approach</p>
-          <ol class="steps mono" aria-hidden="true">
-            <li><span><b>01</b>Before</span></li>
-            <li><span><b>02</b>Mapping</span></li>
-            <li><span><b>03</b>After</span></li>
-          </ol>
-        </div>
-        <div class="tangle-wrap">
-          <svg class="tangle" role="img" aria-label="Nine business systems joined by crossing, manual handoffs straighten into a single line running from Inbox to Reports. Spreadsheets and email threads drop out, and Approvals stays with a person."></svg>
-        </div>
-        <div class="captions">
-          <article class="caption">
-            <p class="label mono">Before</p>
-            <h2>Most companies run on habit.</h2>
-            <p>Somebody copies figures from one system into another because that's how it was done in 2019. It mostly works. Nobody wrote it down.</p>
-          </article>
-          <article class="caption">
-            <p class="label mono">Mapping</p>
-            <h2>We draw what actually happens.</h2>
-            <p>Our first weeks go to the people who do the work, since they're the only ones who know how it really runs. It's rarely what the org chart says.</p>
-          </article>
-          <article class="caption">
-            <p class="label mono">After</p>
-            <h2>The routine runs itself.</h2>
-            <p>Repeat steps happen on their own and leave a record. Anything that needs judgement still goes to a person, and you decide which steps those are.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Practice: an intro, then the four services side by side -->
-    <section class="practice" id="practice" data-tone="dark" data-label="Practice">
-      <div>
-        <div class="track">
-          <div class="panel panel-intro">
-            <p class="label mono"><span class="num"></span> · Practice</p>
-            <div>
-              <h2 class="display" data-reveal>What working with us looks like</h2>
-              <p data-reveal style="--d:120">Most clients start with a diagnosis. Some stop there, which is fine. The report is theirs either way.</p>
+    <!-- Hero: a close-up of an instruction typing itself into a field -->
+    <section class="hero" id="top">
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-drift">
+          <span class="file f1">Q3 board pack FINAL v4.pdf</span>
+          <span class="file f2">invoices_march (2).xlsx</span>
+          <span class="file f3">call notes, Tuesday.docx</span>
+          <span class="file f4">suppliers_copy.csv</span>
+          <div class="field">
+            <div class="field-clip">
+              <div class="type"><span class="typed">answer the phone after six</span><i class="caret"></i></div>
             </div>
           </div>
-          <article class="panel" data-reveal>
-            <span class="panel-num" aria-hidden="true">01</span>
-            <div>
-              <h3>Diagnosis</h3>
-              <p>Two or three weeks inside your operations. You get a written map of how work moves through the company and an honest list of what's worth automating. Sometimes that list is short.</p>
-              <dl class="meta">
-                <dt class="mono">Length</dt><dd>2 to 3 weeks</dd>
-                <dt class="mono">Fee</dt><dd>Fixed, agreed upfront</dd>
-              </dl>
-            </div>
-          </article>
-          <article class="panel" data-reveal>
-            <span class="panel-num" aria-hidden="true">02</span>
-            <div>
-              <h3>Build</h3>
-              <p>We design and build the systems themselves: voice receptionists, say, and the dull plumbing between your tools that nobody else wants to touch. Everything runs on accounts you own.</p>
-              <dl class="meta">
-                <dt class="mono">Length</dt><dd>Usually 6 to 12 weeks</dd>
-                <dt class="mono">Runs on</dt><dd>Your accounts</dd>
-              </dl>
-            </div>
-          </article>
-          <article class="panel" data-reveal>
-            <span class="panel-num" aria-hidden="true">03</span>
-            <div>
-              <h3>Handover</h3>
-              <p>Your people learn to run it. We write the manual, train whoever will own it, and step back. If we've done this properly you won't need us day to day.</p>
-              <dl class="meta">
-                <dt class="mono">Includes</dt><dd>Documentation and training</dd>
-                <dt class="mono">Lock-in</dt><dd>None</dd>
-              </dl>
-            </div>
-          </article>
-          <article class="panel" data-reveal>
-            <span class="panel-num" aria-hidden="true">04</span>
-            <div>
-              <h3>Counsel</h3>
-              <p>A standing line for the founder or the board. A second opinion before you sign with a vendor, and someone to call when a system does something strange.</p>
-              <dl class="meta">
-                <dt class="mono">Format</dt><dd>Monthly retainer</dd>
-                <dt class="mono">Access</dt><dd>Direct to the partner</dd>
-              </dl>
-            </div>
-          </article>
         </div>
+      </div>
+      <div class="hero-copy">
+        <h1 class="hero-title">We automate the work behind well-run companies. <em>Quietly.</em></h1>
+        <p class="hero-sub">
+          <span>Private advisory on AI and operations, from London and Dubai.</span>
+          <a class="btn btn-light" href="#contact">Write to us <span class="btn-arrow"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Ticker: the kinds of work we take off people's desks -->
+    <section class="ticker" aria-label="What we automate">
+      <p class="ticker-label">What we automate</p>
+      <div class="ticker-track">
+        <ul class="ticker-list">
+          <li>Phones and reception</li>
+          <li>Invoice matching</li>
+          <li>Contract intake</li>
+          <li>Board reporting</li>
+          <li>Scheduling</li>
+          <li>Supplier onboarding</li>
+          <li>Approvals</li>
+          <li>CRM upkeep</li>
+          <li>Month-end close</li>
+        </ul>
+        <ul class="ticker-list" aria-hidden="true">
+          <li>Phones and reception</li>
+          <li>Invoice matching</li>
+          <li>Contract intake</li>
+          <li>Board reporting</li>
+          <li>Scheduling</li>
+          <li>Supplier onboarding</li>
+          <li>Approvals</li>
+          <li>CRM upkeep</li>
+          <li>Month-end close</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- The firm -->
+    <section class="intro" id="firm" data-label="The firm">
+      <h2 class="h2" data-reveal>We take the repetitive work off your staff.</h2>
+      <p class="intro-text lead" data-reveal style="--d:100">K &amp; Co is an advisory firm in London and Dubai, founded by Peter Kiselev. We build AI systems for the phone nobody has time to answer and the hundred small handoffs that still happen over email. The team behind it is large and hand-picked, and we'd rather stay with a client for years than leave after one project.</p>
+      <p class="intro-sign" data-reveal style="--d:200">Founded by Peter Kiselev · London · Dubai</p>
+    </section>
+
+    <!-- Approach: a tangle of systems straightens into one line as you scroll -->
+    <section class="approach" id="approach" data-label="Approach">
+      <div class="pin">
+        <div class="stage">
+          <div class="tangle-wrap">
+            <svg class="tangle" role="img" aria-label="Nine business systems joined by crossing, manual handoffs straighten into a single line running from Inbox to Reports. Spreadsheets and email threads drop out, and Approvals stays with a person."></svg>
+          </div>
+          <ol class="chapters">
+            <li class="chapter">
+              <div class="chapter-head"><span>Before</span><i aria-hidden="true"></i></div>
+              <div class="chapter-body"><div class="chapter-card"><div>
+                <h3>Most companies run on habit.</h3>
+                <p>Somebody copies figures from one system into another because that's how it was done in 2019. It mostly works. Nobody wrote it down.</p>
+              </div></div></div>
+            </li>
+            <li class="chapter">
+              <div class="chapter-head"><span>Mapping</span><i aria-hidden="true"></i></div>
+              <div class="chapter-body"><div class="chapter-card"><div>
+                <h3>We draw what actually happens.</h3>
+                <p>Our first weeks go to the people who do the work, since they're the only ones who know how it really runs. It's rarely what the org chart says.</p>
+              </div></div></div>
+            </li>
+            <li class="chapter">
+              <div class="chapter-head"><span>After</span><i aria-hidden="true"></i></div>
+              <div class="chapter-body"><div class="chapter-card"><div>
+                <h3>The routine runs itself.</h3>
+                <p>Repeat steps happen on their own and leave a record. Anything that needs judgement still goes to a person, and you decide which steps those are.</p>
+              </div></div></div>
+            </li>
+          </ol>
+          <div class="scrub" aria-hidden="true"><span><i></i></span></div>
+        </div>
+      </div>
+      <div class="approach-after">
+        <p class="lead" data-reveal>One line from the first email to the final report, with a person wherever judgement is needed.</p>
+        <a class="btn btn-soft" href="#practice" data-reveal style="--d:100">See how we work <span class="btn-arrow"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span></a>
+      </div>
+    </section>
+
+    <!-- Practice: four services, each with a small picture of the work -->
+    <section class="practice" id="practice" data-label="Practice">
+      <div class="practice-head">
+        <h2 class="h2" data-reveal>What working with us looks like</h2>
+        <p class="lead" data-reveal style="--d:100">Most clients start with a diagnosis. Some stop there, which is fine. The report is theirs either way.</p>
+      </div>
+      <div class="cards">
+        <article class="card" data-reveal>
+          <div class="art" aria-hidden="true">
+            <div class="ui ui-map">
+              <p class="ui-kicker">Process map</p>
+              <p class="ui-title">Accounts payable</p>
+              <ol class="ui-steps">
+                <li>Invoice arrives <b class="tag">Email</b></li>
+                <li>Keyed into the ERP <b class="tag warn">By hand</b></li>
+                <li>Approval <b class="tag warn">Waits on a reply</b></li>
+                <li>Payment run <b class="tag">Weekly</b></li>
+              </ol>
+            </div>
+          </div>
+          <h3>Diagnosis</h3>
+          <p>Two or three weeks inside your operations. You get a written map of how work moves through the company and an honest list of what's worth automating. Sometimes that list is short.</p>
+          <dl class="card-meta">
+            <dt>Length</dt><dd>2 to 3 weeks</dd>
+            <dt>Fee</dt><dd>Fixed, agreed upfront</dd>
+          </dl>
+        </article>
+        <article class="card" data-reveal style="--d:90">
+          <div class="art" aria-hidden="true">
+            <div class="ui ui-call">
+              <div class="ui-call-top"><span class="ui-orb"></span><span>Reception</span><time>09:14</time></div>
+              <div class="ui-wave"><i style="--h:.2"></i><i style="--h:.45"></i><i style="--h:.8"></i><i style="--h:.55"></i><i style="--h:.95"></i><i style="--h:.6"></i><i style="--h:.3"></i><i style="--h:.12"></i><i style="--h:.5"></i><i style="--h:.85"></i><i style="--h:1"></i><i style="--h:.7"></i><i style="--h:.4"></i><i style="--h:.65"></i><i style="--h:.9"></i><i style="--h:.5"></i><i style="--h:.25"></i><i style="--h:.1"></i><i style="--h:.35"></i><i style="--h:.75"></i><i style="--h:.55"></i><i style="--h:.85"></i><i style="--h:.45"></i><i style="--h:.2"></i><i style="--h:.4"></i><i style="--h:.15"></i></div>
+              <ul class="ui-checks">
+                <li>Booked Thursday, 10:00</li>
+                <li>Billing question passed to the front desk</li>
+              </ul>
+            </div>
+          </div>
+          <h3>Build</h3>
+          <p>We design and build the systems themselves: voice receptionists, say, and the dull plumbing between your tools that nobody else wants to touch. Everything runs on accounts you own.</p>
+          <dl class="card-meta">
+            <dt>Length</dt><dd>Usually 6 to 12 weeks</dd>
+            <dt>Runs on</dt><dd>Your accounts</dd>
+          </dl>
+        </article>
+        <article class="card" data-reveal style="--d:180">
+          <div class="art" aria-hidden="true">
+            <div class="ui ui-doc">
+              <div class="ui-doc-top"><span class="ui-title">Runbook</span><b class="tag">v1.0</b></div>
+              <ul class="ui-checks">
+                <li>Manual written</li>
+                <li>Owner trained</li>
+                <li>Accounts in your name</li>
+                <li>Our access removed</li>
+              </ul>
+              <span class="ui-lines"><i></i><i></i><i></i></span>
+            </div>
+          </div>
+          <h3>Handover</h3>
+          <p>Your people learn to run it. We write the manual, train whoever will own it, and step back. If we've done this properly you won't need us day to day.</p>
+          <dl class="card-meta">
+            <dt>Includes</dt><dd>Documentation and training</dd>
+            <dt>Lock-in</dt><dd>None</dd>
+          </dl>
+        </article>
+        <article class="card" data-reveal style="--d:270">
+          <div class="art" aria-hidden="true">
+            <div class="ui-thread">
+              <p class="bubble"><span>Founder</span>A vendor wants a three-year term. Worth it?</p>
+              <p class="bubble me"><span>K &amp; Co</span>Ask for twelve months first. I'll send notes tonight.</p>
+            </div>
+          </div>
+          <h3>Counsel</h3>
+          <p>A standing line for the founder or the board. A second opinion before you sign with a vendor, and someone to call when a system does something strange.</p>
+          <dl class="card-meta">
+            <dt>Format</dt><dd>Monthly retainer</dd>
+            <dt>Access</dt><dd>Direct to the partner</dd>
+          </dl>
+        </article>
       </div>
     </section>
 
     <!-- Voice: a plasma ball that speaks. data-envelope is the recording's
          loudness, 25 values a second, which drives the glow; re-measure it
          if audio/voice-sample.mp3 is ever replaced. -->
-    <section class="voice" id="voice" data-tone="dark" data-label="Voice">
-      <div class="voice-copy">
-        <p class="label mono"><span class="num"></span> · Voice</p>
-        <h2 class="display" data-reveal>Hear one for yourself</h2>
-        <p data-reveal style="--d:120">This is a voice agent we built on ElevenLabs, the kind we set up to answer the phone for clients. Her voice is generated. We never publish recordings of real client calls.</p>
+    <section class="voice" id="voice" data-label="Voice">
+      <div class="voice-head">
+        <h2 class="h2" data-reveal>Hear one for yourself</h2>
+        <p class="lead" data-reveal style="--d:100">This is a voice agent we built on ElevenLabs, the kind we set up to answer the phone for clients. Her voice is generated. We never publish recordings of real client calls.</p>
       </div>
-      <div class="orb-stage">
-        <button class="orb" type="button" aria-label="Play a voice sample">
-          <canvas aria-hidden="true"></canvas>
-          <span class="orb-fallback" aria-hidden="true"></span>
-        </button>
-        <p class="orb-hint mono" aria-live="polite">Click to listen</p>
-        <p class="orb-words">Hello, I'm an example of the voice agent K &amp; Co can build for you. I speak more than seventy languages, and I'll answer the phone whenever your team can't. Anything tricky, I pass straight to them. Lovely to meet you.</p>
-        <audio preload="auto" data-src="audio/voice-sample.mp3" data-envelope="0,4,18,80,66,57,66,60,64,99,99,77,55,29,11,8,5,3,2,1,2,1,0,83,99,74,50,87,83,73,50,37,54,57,90,80,67,69,19,16,90,91,58,15,7,61,35,6,93,99,99,47,45,34,42,70,53,21,20,43,44,28,11,6,15,8,13,73,87,97,60,65,43,16,9,28,48,69,42,13,11,71,73,26,93,99,79,59,26,12,8,44,46,34,49,44,25,14,4,1,0,0,0,0,0,0,0,0,0,1,55,78,77,61,64,11,46,94,38,20,7,54,64,69,45,30,54,57,22,44,53,53,57,60,87,39,44,99,99,55,41,99,89,72,58,38,30,24,44,11,20,50,49,46,21,33,29,5,5,1,2,48,64,81,87,90,91,86,72,66,20,5,2,0,0,78,74,20,66,99,99,99,80,43,17,4,4,7,8,8,6,4,3,2,1,0,51,99,98,64,56,70,45,57,60,52,24,18,70,74,56,51,51,43,22,32,69,54,64,67,74,45,99,71,57,85,64,78,23,33,32,18,34,27,31,31,11,8,15,38,34,20,16,14,5,18,13,5,1,0,0,0,0,0,0,0,0,0,0,22,65,70,58,14,56,70,49,27,32,66,46,18,36,99,99,47,13,4,1,11,41,64,34,10,13,72,72,25,31,53,59,31,20,84,99,38,16,37,33,84,51,86,62,35,24,18,8,1,0,0,0,0,0,0,1,1,0,15,46,94,65,65,99,99,52,51,47,76,75,41,32,18,17,39,41,26,18,5,1,0,0"></audio>
+      <div class="voice-panel">
+        <div class="orb-stage">
+          <button class="orb" type="button" aria-label="Play a voice sample">
+            <canvas aria-hidden="true"></canvas>
+            <span class="orb-fallback" aria-hidden="true"></span>
+          </button>
+          <p class="orb-hint" aria-live="polite">Click to listen</p>
+          <p class="orb-words">Hello, I'm an example of the voice agent K &amp; Co can build for you. I speak more than seventy languages, and I'll answer the phone whenever your team can't. Anything tricky, I pass straight to them. Lovely to meet you.</p>
+          <audio preload="auto" data-src="audio/voice-sample.mp3" data-envelope="0,4,18,80,66,57,66,60,64,99,99,77,55,29,11,8,5,3,2,1,2,1,0,83,99,74,50,87,83,73,50,37,54,57,90,80,67,69,19,16,90,91,58,15,7,61,35,6,93,99,99,47,45,34,42,70,53,21,20,43,44,28,11,6,15,8,13,73,87,97,60,65,43,16,9,28,48,69,42,13,11,71,73,26,93,99,79,59,26,12,8,44,46,34,49,44,25,14,4,1,0,0,0,0,0,0,0,0,0,1,55,78,77,61,64,11,46,94,38,20,7,54,64,69,45,30,54,57,22,44,53,53,57,60,87,39,44,99,99,55,41,99,89,72,58,38,30,24,44,11,20,50,49,46,21,33,29,5,5,1,2,48,64,81,87,90,91,86,72,66,20,5,2,0,0,78,74,20,66,99,99,99,80,43,17,4,4,7,8,8,6,4,3,2,1,0,51,99,98,64,56,70,45,57,60,52,24,18,70,74,56,51,51,43,22,32,69,54,64,67,74,45,99,71,57,85,64,78,23,33,32,18,34,27,31,31,11,8,15,38,34,20,16,14,5,18,13,5,1,0,0,0,0,0,0,0,0,0,0,22,65,70,58,14,56,70,49,27,32,66,46,18,36,99,99,47,13,4,1,11,41,64,34,10,13,72,72,25,31,53,59,31,20,84,99,38,16,37,33,84,51,86,62,35,24,18,8,1,0,0,0,0,0,0,1,1,0,15,46,94,65,65,99,99,52,51,47,76,75,41,32,18,17,39,41,26,18,5,1,0,0"></audio>
+        </div>
       </div>
     </section>
 
     <!-- Results: quoted with permission, never named. Hidden until every
          placeholder below is replaced with a real client's approved words
          and figures; then remove the hidden attribute. -->
-    <section class="cases" id="results" data-tone="light" data-label="Results" hidden>
+    <section class="cases" id="results" data-label="Results" hidden>
       <div class="cases-head">
-        <p class="label mono"><span class="num"></span> · Results</p>
-        <h2 class="display" data-reveal>In their words</h2>
-        <p data-reveal style="--d:120">A lot of our recent work answers the phone. We build voice receptionists that book appointments, take messages and pass anything delicate to a person. The clients below agreed to be quoted on one condition: that we leave their names out.</p>
+        <h2 class="h2" data-reveal>In their words</h2>
+        <p class="lead" data-reveal style="--d:100">A lot of our recent work answers the phone. We build voice receptionists that book appointments, take messages and pass anything delicate to a person. The clients below agreed to be quoted on one condition: that we leave their names out.</p>
       </div>
       <div class="case-list">
         <!-- One figure per client. data-value is the number the counter runs
              up to; the unit after it can be %, x, h and so on. -->
-        <figure class="case">
+        <figure class="case" data-reveal>
           <div>
             <p class="case-stat"><span class="case-num" data-value="Y">Y</span>%</p>
-            <p class="case-metric mono">[What improved, e.g. fewer missed calls]</p>
+            <p class="case-metric">[What improved, e.g. fewer missed calls]</p>
           </div>
           <div>
             <blockquote class="case-quote"><p>[The client's own words, approved by them.]</p></blockquote>
-            <figcaption class="case-who mono">[Their role] · [Type of business] · London</figcaption>
+            <figcaption class="case-who">[Their role] · [Type of business] · London</figcaption>
           </div>
         </figure>
-        <figure class="case">
+        <figure class="case" data-reveal>
           <div>
             <p class="case-stat"><span class="case-num" data-value="Y">Y</span>%</p>
-            <p class="case-metric mono">[What improved, e.g. more bookings out of hours]</p>
+            <p class="case-metric">[What improved, e.g. more bookings out of hours]</p>
           </div>
           <div>
             <blockquote class="case-quote"><p>[The client's own words, approved by them.]</p></blockquote>
-            <figcaption class="case-who mono">[Their role] · [Type of business] · [City]</figcaption>
+            <figcaption class="case-who">[Their role] · [Type of business] · [City]</figcaption>
           </div>
         </figure>
-        <figure class="case">
+        <figure class="case" data-reveal>
           <div>
             <p class="case-stat"><span class="case-num" data-value="Y">Y</span>%</p>
-            <p class="case-metric mono">[What improved, e.g. less front-desk time on the phone]</p>
+            <p class="case-metric">[What improved, e.g. less front-desk time on the phone]</p>
           </div>
           <div>
             <blockquote class="case-quote"><p>[The client's own words, approved by them.]</p></blockquote>
-            <figcaption class="case-who mono">[Their role] · [Type of business] · [City]</figcaption>
+            <figcaption class="case-who">[Their role] · [Type of business] · [City]</figcaption>
           </div>
         </figure>
       </div>
-    </section>
-
-    <!-- Discretion: each term settles into place once as it arrives -->
-    <section class="discretion" id="discretion" data-tone="light" data-label="Discretion">
-      <div class="discretion-head">
-        <p class="label mono"><span class="num"></span> · Discretion</p>
-        <h2 class="display" data-reveal>The terms we keep</h2>
-        <p data-reveal style="--d:120">They're written into every contract we sign.</p>
-      </div>
-      <ol class="terms">
-        <li class="term">
-          <span class="term-num mono">01</span>
-          <h3>We don't name clients.</h3>
-          <p>Not on this site, and not at dinner either.</p>
-        </li>
-        <li class="term">
-          <span class="term-num mono">02</span>
-          <h3>Your data stays where it is.</h3>
-          <p>Systems run in your cloud accounts or on hardware you control. We don't train models on your data, and we don't keep copies after handover.</p>
-        </li>
-        <li class="term">
-          <span class="term-num mono">03</span>
-          <h3>The NDA comes first.</h3>
-          <p>We'll send ours before the first real conversation. Or we'll sign yours.</p>
-        </li>
-        <li class="term">
-          <span class="term-num mono">04</span>
-          <h3>We have nothing to sell you.</h3>
-          <p>We don't resell software and we don't take commissions from vendors. If we recommend a tool, it's because it suits you.</p>
-        </li>
-        <li class="term">
-          <span class="term-num mono">05</span>
-          <h3>Hand-picked, all of them.</h3>
-          <p>The team is larger than our profile suggests, and Peter Kiselev chose every person on it himself.</p>
-        </li>
-      </ol>
     </section>
 
     <!-- Clients -->
-    <section class="clients" id="clients" data-tone="light" data-label="Clients">
-      <div>
-        <p class="label mono"><span class="num"></span> · Clients</p>
-        <h2 class="display" data-reveal>Who calls us</h2>
-      </div>
-      <div>
-        <p class="lede" data-reveal>Mostly owner-led companies with somewhere between fifty and two thousand people, where a few manual processes carry more weight than anyone likes to admit.</p>
-        <ul class="sectors" data-reveal>
-          <li>Family offices <span class="mono">01</span></li>
-          <li>Holding companies <span class="mono">02</span></li>
-          <li>Law and accounting firms <span class="mono">03</span></li>
-          <li>Trading and logistics <span class="mono">04</span></li>
-          <li>Real estate <span class="mono">05</span></li>
-          <li>Private healthcare <span class="mono">06</span></li>
+    <section class="clients" id="clients" data-label="Clients">
+      <h2 class="h2" data-reveal>Who calls us</h2>
+      <div class="clients-body">
+        <p data-reveal>Mostly owner-led companies with somewhere between fifty and two thousand people, where a few manual processes carry more weight than anyone likes to admit.</p>
+        <ul class="sectors" data-reveal style="--d:100">
+          <li>Family offices</li>
+          <li>Holding companies</li>
+          <li>Law and accounting firms</li>
+          <li>Trading and logistics</li>
+          <li>Real estate</li>
+          <li>Private healthcare</li>
         </ul>
       </div>
     </section>
 
+    <!-- Discretion: the five terms, each with its own seal -->
+    <section class="discretion" id="discretion" data-label="Discretion">
+      <div class="discretion-head">
+        <h2 class="h2" data-reveal>The terms we keep</h2>
+        <p data-reveal style="--d:100">They're written into every contract we sign.</p>
+      </div>
+      <ol class="terms">
+        <li class="term" data-reveal>
+          <h3>We don't name clients.</h3>
+          <p>Not on this site, and not at dinner either.</p>
+          <span class="seal" aria-hidden="true">Names</span>
+        </li>
+        <li class="term" data-reveal style="--d:80">
+          <h3>Your data stays where it is.</h3>
+          <p>Systems run in your cloud accounts or on hardware you control. We don't train models on your data, and we don't keep copies after handover.</p>
+          <span class="seal" aria-hidden="true">Data</span>
+        </li>
+        <li class="term" data-reveal style="--d:160">
+          <h3>The NDA comes first.</h3>
+          <p>We'll send ours before the first real conversation. Or we'll sign yours.</p>
+          <span class="seal" aria-hidden="true">NDA</span>
+        </li>
+        <li class="term" data-reveal style="--d:240">
+          <h3>We have nothing to sell you.</h3>
+          <p>We don't resell software and we don't take commissions from vendors. If we recommend a tool, it's because it suits you.</p>
+          <span class="seal" aria-hidden="true">Fees</span>
+        </li>
+        <li class="term" data-reveal style="--d:320">
+          <h3>Hand-picked, all of them.</h3>
+          <p>The team is larger than our profile suggests, and Peter Kiselev chose every person on it himself.</p>
+          <span class="seal" aria-hidden="true">Team</span>
+        </li>
+      </ol>
+    </section>
+
     <!-- Contact -->
-    <section class="contact" id="contact" data-tone="dark" data-label="Contact">
-      <p class="label mono"><span class="num"></span> · Contact</p>
-      <h2 class="contact-title" data-reveal>Write to <em>us.</em></h2>
-      <div class="contact-grid">
-        <p data-reveal>Most of our clients were introduced by someone they trust. If that's how you heard about us, mention their name. If not, write anyway and tell us a little about the problem.</p>
-        <div data-reveal style="--d:120">
-          <a class="email" href="mailto:office@kiselevconsultants.com">office@kiselevconsultants.com</a>
-          <dl class="contact-meta">
-            <div><dt class="mono">Based in</dt><dd>London and Dubai</dd></div>
-            <div><dt class="mono">Meetings</dt><dd>By appointment</dd></div>
-            <div><dt class="mono">Replies</dt><dd>Same working day</dd></div>
+    <section class="contact" id="contact" data-label="Contact">
+      <div class="cta" data-reveal>
+        <div class="cta-copy">
+          <h2 class="h2">Write to us.</h2>
+          <p>Most of our clients were introduced by someone they trust. If that's how you heard about us, mention their name. If not, write anyway and tell us a little about the problem.</p>
+          <a class="btn btn-light" href="mailto:office@kiselevconsultants.com">Email the office <span class="btn-arrow"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span></a>
+        </div>
+        <div class="cta-panel">
+          <div class="cta-clocks">
+            <p><span>London</span><time data-tz="Europe/London">--:--</time></p>
+            <p><span>Dubai</span><time data-tz="Asia/Dubai">--:--</time></p>
+          </div>
+          <dl class="cta-meta">
+            <div><dt>Email</dt><dd><a href="mailto:office@kiselevconsultants.com">office@kiselevconsultants.com</a></dd></div>
+            <div><dt>Meetings</dt><dd>By appointment</dd></div>
+            <div><dt>Replies</dt><dd>Same working day</dd></div>
           </dl>
         </div>
       </div>
@@ -1792,42 +2383,47 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer" data-tone="dark">
-    <div class="wordmark" aria-hidden="true"><span class="wordmark-in"><span>K</span><span class="amp">&amp;</span><span>C</span><span>o</span></span></div>
-    <div class="footer-row mono">
+  <footer class="footer">
+    <div class="footer-cols">
+      <div>
+        <p>The firm</p>
+        <ul>
+          <li><a href="#firm">About</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#practice">Practice</a></li>
+          <li><a href="#voice">Voice</a></li>
+        </ul>
+      </div>
+      <div>
+        <p>Working together</p>
+        <ul>
+          <li><a href="#clients">Clients</a></li>
+          <li><a href="#discretion">Discretion</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p>Offices</p>
+        <ul>
+          <li>London</li>
+          <li>Dubai</li>
+        </ul>
+      </div>
+      <div>
+        <p>Contact</p>
+        <ul>
+          <li><a href="mailto:office@kiselevconsultants.com">office@kiselevconsultants.com</a></li>
+          <li>Replies the same working day</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wordmark" aria-hidden="true"><span class="wordmark-in">K<span class="amp">&amp;</span>Co</span></div>
+    <div class="footer-row">
       <span>&copy; 2026 K &amp; Co</span>
       <span>No cookies, analytics or trackers on this site</span>
       <a href="#top">Back to top</a>
     </div>
   </footer>
-
-  <!-- Floating menu. A native <details>, so it opens and closes even without
-       JavaScript; the script adds section numbers, the current section, and
-       closing on Escape, outside clicks and link picks. When the Results
-       section is switched on, add its link (#results) between Voice and
-       Discretion. -->
-  <details class="dock">
-    <summary class="dock-toggle">
-      <span class="dock-label">Menu</span>
-      <span class="dock-here mono" aria-hidden="true"></span>
-      <i class="dock-caret" aria-hidden="true"></i>
-    </summary>
-    <nav class="dock-panel" aria-label="Sections">
-      <ul class="dock-list">
-        <li><a href="#firm"><span class="dock-num mono"></span>The firm</a></li>
-        <li><a href="#approach"><span class="dock-num mono"></span>Approach</a></li>
-        <li><a href="#practice"><span class="dock-num mono"></span>Practice</a></li>
-        <li><a href="#voice"><span class="dock-num mono"></span>Voice</a></li>
-        <li><a href="#discretion"><span class="dock-num mono"></span>Discretion</a></li>
-        <li><a href="#clients"><span class="dock-num mono"></span>Clients</a></li>
-        <li><a href="#contact"><span class="dock-num mono"></span>Contact</a></li>
-      </ul>
-      <div class="dock-foot">
-        <a href="mailto:office@kiselevconsultants.com">Write to us</a>
-        <a href="#top">Back to top</a>
-      </div>
-    </nav>
-  </details>
 
   <script>
   (() => {
@@ -1843,7 +2439,6 @@
 
     let vw = innerWidth;
     let vh = innerHeight;
-    let docH = 1;
 
     /* ── Scene engine ──
        Every scene measures a 0..1 progress from native scroll and draws it
@@ -1866,16 +2461,7 @@
       els.forEach(el => io.observe(el));
     };
     reveal($$('[data-reveal]'));
-    // The first term waits until the page has turned to paper; the rest reveal normally.
-    reveal($$('.term').slice(0, 1), '-36%');
-    reveal($$('.term').slice(1));
     reveal($$('.wordmark'), '-4%');
-
-    // 0 when the section's top meets the top of the screen, 1 when its pin releases.
-    const pinned = el => () => {
-      const r = el.getBoundingClientRect();
-      return clamp(-r.top / (r.height - vh));
-    };
 
     // 0 when the top crosses `a` (fraction of screen height), 1 when the bottom crosses `b`.
     const through = (el, a, b) => () => {
@@ -1883,26 +2469,86 @@
       return clamp((a * vh - r.top) / ((a - b) * vh + r.height));
     };
 
-    /* ── Hero: the sentence goes quiet, "Quietly." stays ── */
+    /* ── Hero: an instruction types itself, holds, clears, and the next one starts ── */
     const hero = $('.hero');
-    const heroLines = $$('.hero .line-in').slice(0, 3);
-    const heroNote = $('.hero-note');
-    const heroFoot = $('.hero-foot');
+    const heroMedia = $('.hero-media');
+    const field = $('.field');
+    const typed = $('.typed');
 
-    if (motion) scene(pinned(hero), p => {
-      heroLines.forEach((l, i) => {
-        const q = ease(range(p, .06 + i * .12, .36 + i * .12));
-        l.style.opacity = (1 - q * .5).toFixed(3);
+    if (motion) {
+      const PHRASES = [
+        'answer the phone after six',
+        'chase the unpaid invoices',
+        'book James in for Thursday at ten',
+        'send the board pack on Friday',
+        'match March invoices to orders',
+      ];
+      let phrase = 0;
+      let n = 0;
+      let deleting = false;
+      let timer = 0;
+      let running = false;
+      let heroSeen = true;
+      typed.textContent = '';
+
+      const step = () => {
+        timer = 0;
+        const target = PHRASES[phrase];
+        let wait;
+        field.classList.add('typing');
+        if (!deleting) {
+          typed.textContent = target.slice(0, ++n);
+          if (n >= target.length) {
+            deleting = true;
+            field.classList.remove('typing');
+            wait = 2400;
+          } else {
+            wait = 55 + Math.random() * 75 + (target[n - 1] === ' ' ? 70 : 0);
+          }
+        } else {
+          typed.textContent = target.slice(0, --n);
+          if (n <= 0) {
+            deleting = false;
+            phrase = (phrase + 1) % PHRASES.length;
+            field.classList.remove('typing');
+            wait = 550;
+          } else {
+            wait = 24;
+          }
+        }
+        if (running) timer = setTimeout(step, wait);
+      };
+
+      // Only types while the hero is on screen and the tab is in front.
+      const sync = () => {
+        const want = heroSeen && !document.hidden;
+        if (want && !running) {
+          running = true;
+          timer = setTimeout(step, 700);
+        } else if (!want && running) {
+          running = false;
+          clearTimeout(timer);
+          field.classList.remove('typing');
+        }
+      };
+      new IntersectionObserver(([en]) => {
+        heroSeen = en.isIntersecting;
+        sync();
+      }).observe(hero);
+      document.addEventListener('visibilitychange', sync);
+
+      // The picture drifts down a little slower than the page as you leave it.
+      scene(() => clamp(-hero.getBoundingClientRect().top / Math.max(1, hero.offsetHeight)), p => {
+        heroMedia.style.transform = `translate3d(0, ${(p * 14).toFixed(2)}%, 0)`;
       });
-      heroNote.style.opacity = ease(range(p, .45, .8)).toFixed(3);
-    });
+    }
 
     /* ── Approach: the tangle ── */
-    const approach = $('.approach');
+    const pin = $('.approach .pin');
     const wrap = $('.tangle-wrap');
     const svg = $('.tangle');
-    const steps = $$('.steps li');
-    const captions = $$('.caption');
+    const chapters = $$('.chapter');
+    const scrubBar = $('.scrub i');
     const NS = 'http://www.w3.org/2000/svg';
     const make = (tag, attrs, parent) => {
       const n = document.createElementNS(NS, tag);
@@ -2021,14 +2667,14 @@
       afters.forEach(a => a.t.setAttribute('text-anchor', wide ? 'middle' : 'start'));
     }
 
-    // v runs 0..1 while the section scrolls into view, then 1..2 while it is pinned.
+    // v runs 0..1 while the stage scrolls into view, then 1..2 while it is pinned.
     // One easing (e) moves everything; the rest are opacity ramps on the same p.
     function renderTangle(v) {
       const p = clamp(v - 1);
       const e = ease(range(p, .22, .72));
       const gone = range(p, .22, .46);
-      // The drawing surfaces as soon as the page has turned to ink (the flip lands near v .56).
-      if (motion) svg.style.opacity = ease(range(v, .56, .8)).toFixed(3);
+      // The drawing surfaces as the grey stage comes up the screen.
+      if (motion) svg.style.opacity = ease(range(v, .35, .8)).toFixed(3);
 
       for (const id in nodes) {
         const n = nodes[id];
@@ -2092,39 +2738,56 @@
       human.style.opacity = ao.toFixed(3);
 
       if (!motion) return;
+      scrubBar.style.transform = `scaleX(${p.toFixed(4)})`;
       // Hysteresis: forward at .32 and .72, back only below .26 and .66,
-      // so a small scroll-back near a boundary never flips the caption.
+      // so a small scroll-back near a boundary never flips the chapter.
       let idx = capIdx < 0 ? (p < .29 ? 0 : p < .69 ? 1 : 2) : capIdx;
       while (idx < 2 && p >= [.32, .72][idx]) idx++;
       while (idx > 0 && p < [.26, .66][idx - 1]) idx--;
       if (idx !== capIdx) {
         capIdx = idx;
-        captions.forEach((c, i) => c.classList.toggle('on', i === idx));
-        steps.forEach((s, i) => s.classList.toggle('on', i === idx));
+        chapters.forEach((c, i) => c.classList.toggle('on', i === idx));
       }
     }
 
-    if (motion) scene(() => {
-      const r = approach.getBoundingClientRect();
-      return clamp(1 - r.top / vh) + clamp(-r.top / (r.height - vh));
-    }, renderTangle);
+    if (motion) {
+      scene(() => {
+        const r = pin.getBoundingClientRect();
+        return clamp(1 - r.top / vh) + clamp(-r.top / (r.height - vh));
+      }, renderTangle);
+
+      // Each chapter pill scrolls the stage to the middle of its chapter.
+      const STOPS = [.12, .5, .9];
+      chapters.forEach((c, i) => {
+        const head = $('.chapter-head', c);
+        head.setAttribute('role', 'button');
+        head.tabIndex = 0;
+        const go = () => {
+          const top = pin.getBoundingClientRect().top + scrollY;
+          scrollTo({ top: top + STOPS[i] * (pin.offsetHeight - vh), behavior: 'smooth' });
+        };
+        head.addEventListener('click', go);
+        head.addEventListener('keydown', e => {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+          go();
+        });
+      });
+    }
 
     /* ── Results: each figure counts up as its row scrolls past ── */
     $$('.case').forEach(row => {
       if (row.closest('[hidden]')) return;
       const num = $('.case-num', row);
       const target = parseFloat(num.dataset.value);
-      const counts = Number.isFinite(target);
-      const places = counts ? (num.dataset.value.split('.')[1] || '').length : 0;
+      if (!Number.isFinite(target)) return;
+      const places = (num.dataset.value.split('.')[1] || '').length;
       const show = v => (num.textContent = v.toFixed(places));
       if (!motion) {
-        if (counts) show(target);
+        show(target);
         return;
       }
-      scene(through(row, .9, .55), p => {
-        if (counts) show(target * easeOut(range(p, .05, .8)));
-        row.style.setProperty('--l', ease(range(p, 0, .5)).toFixed(4));
-      });
+      scene(through(row, .9, .55), p => show(target * easeOut(range(p, .05, .8))));
     });
 
     /* ── Voice orb: a plasma ball that speaks when you click it ── */
@@ -2360,13 +3023,18 @@
       orb.addEventListener('click', () => (audio.paused ? start() : stop()));
 
       // Browsers only allow sound on hover once the visitor has clicked
-      // something on the page. Until then, hover just wakes the ball.
+      // something on the page. Until then, hover just wakes the ball. The
+      // timer starts on a real mouse movement over the ball, so a page that
+      // scrolls the ball under a resting pointer (a menu jump, say) stays quiet.
       let hoverTimer = 0;
       let hoverPlayed = false;
-      orb.addEventListener('pointerenter', e => {
+      orb.addEventListener('pointerenter', () => {
         st.wakeTo = 1;
         kickOrb();
-        if (e.pointerType !== 'mouse' || hoverPlayed) return;
+      });
+      orb.addEventListener('pointermove', e => {
+        if (e.pointerType !== 'mouse' || hoverPlayed || hoverTimer) return;
+        if (!e.movementX && !e.movementY) return;
         hoverTimer = setTimeout(() => {
           const allowed = navigator.userActivation ? navigator.userActivation.hasBeenActive : false;
           if (allowed && audio.paused) {
@@ -2377,6 +3045,7 @@
       });
       orb.addEventListener('pointerleave', () => {
         clearTimeout(hoverTimer);
+        hoverTimer = 0;
         st.wakeTo = 0;
         kickOrb();
       });
@@ -2405,38 +3074,18 @@
       fitOrb();
     }
 
-    /* ── Footer wordmark: sized to the page width; it rises once (see reveal) ── */
-    const mark = $('.wordmark');
-    const markIn = $('.wordmark-in');
-
-    function fitWordmark() {
-      mark.style.fontSize = '100px';
-      const natural = markIn.getBoundingClientRect().width;
-      mark.style.fontSize = `${((99 * mark.clientWidth) / natural).toFixed(2)}px`;
-    }
-
-    /* ── Chrome: page tone, section index, progress, nav ── */
-    const nav = $('.nav');
-    const index = $('.index');
-    const indexNum = $('.index-num');
-    const indexLabel = $('.index-label');
-    const progress = $('.progress span');
-    const themeColor = $('meta[name="theme-color"]');
-    const tones = $$('[data-tone]');
-    $$('main > section[data-label]')
-      .filter(sec => !sec.hidden)
-      .forEach((sec, i) => (sec.dataset.index = String(i + 1).padStart(2, '0')));
+    /* ── Chrome: the header bar and the floating menu ── */
+    const top = $('.top');
+    const sections = $$('main > section[data-label]').filter(sec => !sec.hidden);
     let current = null;
 
-    /* ── Floating menu ── */
     const dock = $('.dock');
     const dockSummary = $('summary', dock);
     const dockHere = $('.dock-here', dock);
-    // Number each entry to match its section; drop any whose section is hidden.
+    // Drop any entry whose section is hidden.
     $$('.dock-list a', dock).forEach(a => {
       const sec = $(a.getAttribute('href'));
       if (!sec || sec.hidden) a.parentElement.remove();
-      else $('.dock-num', a).textContent = sec.dataset.index || '';
     });
     const dockItems = $$('.dock-list a', dock);
     const closeDock = refocus => {
@@ -2444,11 +3093,27 @@
       dock.open = false;
       if (refocus) dockSummary.focus();
     };
+    // A tap outside closes the menu and goes no further, so closing it over
+    // the voice ball, say, doesn't also start the recording.
+    let swallow = 0;
     document.addEventListener('pointerdown', e => {
-      if (!dock.contains(e.target)) closeDock(false);
-    });
+      if (!dock.open || dock.contains(e.target)) return;
+      closeDock(false);
+      swallow = setTimeout(() => (swallow = 0), 600);
+    }, true);
+    document.addEventListener('click', e => {
+      if (!swallow) return;
+      clearTimeout(swallow);
+      swallow = 0;
+      e.preventDefault();
+      e.stopPropagation();
+    }, true);
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && dock.open) closeDock(true);
+      if (e.key === 'Escape' && dock.open) closeDock(dock.contains(document.activeElement));
+    });
+    // Tabbing out of the menu closes it.
+    dock.addEventListener('focusout', e => {
+      if (e.relatedTarget && !dock.contains(e.relatedTarget)) closeDock(false);
     });
     // Close after the jump has started, not before.
     dock.addEventListener('click', e => {
@@ -2456,52 +3121,32 @@
     });
 
     function readChrome() {
-      const mid = vh * .5;
       let hit = null;
-      // Keep the current tone until its section is clearly off the middle,
-      // so a small scroll-back never flips the whole page.
-      if (current) {
-        const r = current.getBoundingClientRect();
-        if (r.top <= vh * .56 && r.bottom > vh * .44) return { hit: current, y: scrollY };
+      for (const sec of sections) {
+        if (sec.getBoundingClientRect().top > vh * .45) break;
+        hit = sec;
       }
-      for (const el of tones) {
-        const r = el.getBoundingClientRect();
-        if (r.top <= mid && r.bottom > mid) {
-          hit = el;
-          break;
-        }
-      }
-      return { hit, y: scrollY };
+      const r = pin.getBoundingClientRect();
+      return { hit, y: scrollY, pinned: r.top <= 1 && r.bottom >= vh - 1 };
     }
 
-    function writeChrome({ hit, y }) {
-      if (hit && hit !== current) {
+    function writeChrome({ hit, y, pinned }) {
+      if (hit !== current) {
         current = hit;
-        const tone = hit.dataset.tone;
-        if (root.dataset.theme !== tone) {
-          root.dataset.theme = tone;
-          themeColor.content = tone === 'dark' ? '#0f0f0e' : '#eeeae2';
-        }
-        if (hit.dataset.index) {
-          indexNum.textContent = hit.dataset.index;
-          indexLabel.textContent = hit.dataset.label;
-        }
-        index.classList.toggle('hide', !hit.dataset.index);
-        dockHere.textContent = hit.dataset.index ? `${hit.dataset.index} ${hit.dataset.label}` : '';
+        dockHere.textContent = hit ? hit.dataset.label : '';
         dockItems.forEach(a => {
-          if (a.getAttribute('href') === `#${hit.id}`) a.setAttribute('aria-current', 'location');
+          if (hit && a.getAttribute('href') === `#${hit.id}`) a.setAttribute('aria-current', 'location');
           else a.removeAttribute('aria-current');
         });
       }
-      // The menu stays out of the way on the opening screen.
-      const showDock = y > vh * .6;
+      top.classList.toggle('scrolled', y > 40);
+      // The menu stays out of the way on the opening screen, and on phones
+      // while the pinned stage needs the bottom of the screen for its chapters.
+      const showDock = y > vh * .6 && !(motion && pinned && vw <= 860 && moving());
       if (showDock !== dock.classList.contains('show')) {
         dock.classList.toggle('show', showDock);
         if (!showDock) closeDock(false);
       }
-      progress.style.transform = `scaleY(${clamp(y / Math.max(1, docH - vh)).toFixed(4)})`;
-      nav.classList.toggle('solid', y > 40);
-      heroFoot.classList.toggle('gone', y > 40);
     }
 
     /* ── Frame loop: one pass per scroll or resize, then sleeps ── */
@@ -2533,15 +3178,13 @@
       vw = innerWidth;
       vh = innerHeight;
       layoutTangle();
-      if (!moving()) renderTangle(2, 0);
-      fitWordmark();
-      docH = root.scrollHeight;
+      if (!moving()) renderTangle(2);
       for (const s of scenes) s.drawn = null;
       wake();
     }
 
     // Mobile browsers resize the viewport as the address bar slides;
-    // re-laying out the pinned sections for that would make them jump.
+    // re-laying out the pinned stage for that would make it jump.
     let lastW = vw;
     addEventListener('resize', () => {
       const barOnly = innerWidth === lastW && Math.abs(innerHeight - vh) < 160 && matchMedia('(pointer: coarse)').matches;
@@ -2557,7 +3200,7 @@
     addEventListener('load', layout);
 
     /* ── London and Dubai clocks ── */
-    const clocks = $$('.clock time').map(el => ({
+    const clocks = $$('time[data-tz]').map(el => ({
       el,
       fmt: new Intl.DateTimeFormat('en-GB', { timeZone: el.dataset.tz, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }),
     }));
